@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIMAL LEGIONS - Règles des Enfants (28/01/2026)</title>
+    <meta name="description" content="Règles officielles de PRIMAL LEGIONS pour enfants de 8-11 ans - Version du 28 janvier 2026">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Page Règles Styles */
+        .regles-page-hero {
+            min-height: 35vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: calc(80px + var(--space-xl)) var(--space-md) var(--space-lg);
+            background: linear-gradient(135deg, var(--color-bg-darker) 0%, var(--color-bg-dark) 50%, var(--color-bg-darker) 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .regles-page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(201, 162, 39, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(201, 162, 39, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .regles-page-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--color-accent-primary);
+            margin-bottom: var(--space-sm);
+            text-shadow: 0 0 40px rgba(201, 162, 39, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .regles-page-hero .date-badge {
+            background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+            color: var(--color-bg-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: var(--space-md);
+            position: relative;
+            z-index: 1;
+        }
+
+        .regles-page-hero p {
+            color: var(--color-text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .regles-page-hero .info-badges {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: var(--space-md);
+            position: relative;
+            z-index: 1;
+        }
+
+        .regles-page-hero .info-badge {
+            background: rgba(201, 162, 39, 0.15);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            color: var(--color-accent-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Content Section */
+        .regles-content {
+            padding: var(--space-xl) 0;
+            background: var(--color-bg-dark);
+        }
+
+        .regles-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Section Block */
+        .regles-block {
+            background: var(--color-bg-card);
+            border-radius: 20px;
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .regles-block h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--color-accent-primary);
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .regles-block h2 .emoji {
+            font-size: 2rem;
+        }
+
+        .regles-block h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--color-text-primary);
+            margin: var(--space-md) 0 var(--space-sm);
+        }
+
+        .regles-block h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--color-accent-secondary);
+            margin: var(--space-sm) 0;
+        }
+
+        .regles-block p {
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-sm);
+        }
+
+        .regles-block ul, .regles-block ol {
+            color: var(--color-text-secondary);
+            padding-left: var(--space-md);
+            margin-bottom: var(--space-sm);
+        }
+
+        .regles-block li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* Tables */
+        .regles-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-md) 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .regles-table th {
+            background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+            color: var(--color-bg-dark);
+            padding: 1rem;
+            text-align: center;
+            font-family: var(--font-display);
+            font-weight: 600;
+        }
+
+        .regles-table td {
+            padding: 0.8rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+            color: var(--color-text-secondary);
+        }
+
+        .regles-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .regles-table tr:hover td {
+            background: rgba(201, 162, 39, 0.05);
+        }
+
+        /* Zone Cards */
+        .zones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+
+        .zone-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: var(--space-md);
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all var(--transition-medium);
+        }
+
+        .zone-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .zone-card.foret {
+            border-color: rgba(74, 156, 61, 0.5);
+            background: linear-gradient(135deg, rgba(74, 156, 61, 0.1), rgba(0, 0, 0, 0.3));
+        }
+
+        .zone-card.desert {
+            border-color: rgba(212, 168, 75, 0.5);
+            background: linear-gradient(135deg, rgba(212, 168, 75, 0.1), rgba(0, 0, 0, 0.3));
+        }
+
+        .zone-card.montagne {
+            border-color: rgba(150, 150, 150, 0.5);
+            background: linear-gradient(135deg, rgba(150, 150, 150, 0.1), rgba(0, 0, 0, 0.3));
+        }
+
+        .zone-card.marais {
+            border-color: rgba(45, 138, 184, 0.5);
+            background: linear-gradient(135deg, rgba(45, 138, 184, 0.1), rgba(0, 0, 0, 0.3));
+        }
+
+        .zone-card .zone-icon {
+            font-size: 3rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .zone-card h4 {
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .zone-card p {
+            font-size: 0.9rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .zone-card .zone-bonus {
+            background: rgba(201, 162, 39, 0.2);
+            color: var(--color-accent-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Phases */
+        .phases-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .phase-item {
+            display: flex;
+            gap: var(--space-md);
+            align-items: flex-start;
+            background: rgba(0, 0, 0, 0.2);
+            padding: var(--space-md);
+            border-radius: 15px;
+            border-left: 4px solid var(--color-accent-primary);
+        }
+
+        .phase-number {
+            background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+            color: var(--color-bg-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .phase-content h4 {
+            color: var(--color-accent-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .phase-content p {
+            margin-bottom: 0;
+        }
+
+        /* Capacités */
+        .capacites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+
+        .capacite-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: var(--space-md);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .capacite-card .animal-icon {
+            font-size: 2rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .capacite-card h5 {
+            font-family: var(--font-display);
+            color: var(--color-accent-primary);
+            font-size: 1rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .capacite-card .capacite-name {
+            color: var(--color-text-primary);
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .capacite-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(201, 162, 39, 0.05));
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 12px;
+            padding: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+
+        .highlight-box.warning {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.15), rgba(220, 53, 69, 0.05));
+            border-color: rgba(220, 53, 69, 0.3);
+        }
+
+        .highlight-box.success {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.15), rgba(40, 167, 69, 0.05));
+            border-color: rgba(40, 167, 69, 0.3);
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        /* Quick Summary */
+        .quick-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+
+        .summary-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: var(--space-md);
+            text-align: center;
+        }
+
+        .summary-item .summary-icon {
+            font-size: 2rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .summary-item h5 {
+            color: var(--color-accent-primary);
+            font-family: var(--font-display);
+            margin-bottom: var(--space-xs);
+        }
+
+        .summary-item p {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+
+        /* Print Styles */
+        @media print {
+            .main-nav, .footer, .back-to-top {
+                display: none !important;
+            }
+
+            .regles-page-hero {
+                min-height: auto;
+                padding: 2rem;
+                background: white !important;
+            }
+
+            .regles-page-hero h1 {
+                color: #1a1a2e !important;
+            }
+
+            .regles-block {
+                break-inside: avoid;
+                border: 1px solid #ccc;
+                background: white;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+            }
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: var(--space-md);
+            right: var(--space-md);
+            width: 50px;
+            height: 50px;
+            background: var(--color-accent-primary);
+            color: var(--color-bg-dark);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-medium);
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(201, 162, 39, 0.6);
+        }
+
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: var(--space-md);
+            left: var(--space-md);
+            background: var(--color-bg-card);
+            color: var(--color-text-primary);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            transition: all var(--transition-medium);
+            z-index: 100;
+        }
+
+        .print-btn:hover {
+            background: var(--color-accent-primary);
+            color: var(--color-bg-dark);
+        }
+
+        @media print {
+            .print-btn {
+                display: none !important;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .regles-block {
+                padding: var(--space-md);
+            }
+
+            .regles-block h2 {
+                font-size: 1.5rem;
+            }
+
+            .phase-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .phase-number {
+                align-self: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">PRIMAL LEGIONS</span>
+            </a>
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#univers">Univers</a></li>
+                <li><a href="index.html#histoire">Histoire</a></li>
+                <li><a href="index.html#factions">Factions</a></li>
+                <li><a href="index.html#teams">Equipes</a></li>
+                <li><a href="index.html#regles">Regles</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="regles-page-hero">
+        <div class="date-badge">📅 Version du 28 janvier 2026</div>
+        <h1>📜 Règles des Enfants</h1>
+        <p>Règles officielles de PRIMAL LEGIONS adaptées pour les enfants de 8 à 11 ans</p>
+        <div class="info-badges">
+            <span class="info-badge">👥 2-4 Joueurs</span>
+            <span class="info-badge">⏱ 20-30 minutes</span>
+            <span class="info-badge">🎯 8-11 ans</span>
+            <span class="info-badge">🃏 15 cartes/joueur</span>
+        </div>
+    </header>
+
+    <!-- Contenu des Règles -->
+    <main class="regles-content">
+        <div class="regles-container">
+
+            <!-- MATÉRIEL -->
+            <section class="regles-block">
+                <h2><span class="emoji">🎴</span> Matériel Nécessaire</h2>
+                <ol>
+                    <li><strong>18 Héros</strong> - Cartes spéciales avec capacités uniques (cadre doré)</li>
+                    <li><strong>36 Guerriers Communs</strong> - Cartes de base : Fantassin, Archer, Bouclier (cadre bronze)</li>
+                    <li><strong>1 Plateau 4 Zones</strong> - Forêt, Désert, Montagne, Marais</li>
+                    <li><strong>40 Gemmes</strong> - Jetons de récompense (20 par joueur)</li>
+                </ol>
+            </section>
+
+            <!-- COMPOSITION DU DECK -->
+            <section class="regles-block">
+                <h2><span class="emoji">1️⃣</span> Composition du Deck</h2>
+                <p>Chaque joueur constitue un deck de <strong>15 cartes</strong> :</p>
+                
+                <h4>🥇 3 Héros (Cartes Or)</h4>
+                <p>Vos personnages actuels avec capacités spéciales</p>
+                
+                <h4>🥉 12 Guerriers Communs (Cartes Bronze)</h4>
+                <p>Stats réduites, mais essentiels pour la stratégie</p>
+
+                <h3>📊 Statistiques des Communs</h3>
+                <table class="regles-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>PV</th>
+                            <th>ATK</th>
+                            <th>DEF</th>
+                            <th>Quantité</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>⚔️ Fantassin</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>4 cartes</td>
+                        </tr>
+                        <tr>
+                            <td>🏹 Archer</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>4 cartes</td>
+                        </tr>
+                        <tr>
+                            <td>🛡️ Bouclier</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>4 cartes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- PLATEAU DE JEU -->
+            <section class="regles-block">
+                <h2><span class="emoji">2️⃣</span> Plateau de Jeu - 4 Zones</h2>
+                <p>Le plateau est divisé en <strong>4 zones thématiques</strong>. Chaque zone offre un bonus aux personnages qui y sont liés !</p>
+
+                <div class="zones-grid">
+                    <div class="zone-card foret">
+                        <div class="zone-icon">🌳</div>
+                        <h4>Forêt</h4>
+                        <p>Ours, Cerf, Loup</p>
+                        <span class="zone-bonus">+1 PV</span>
+                    </div>
+                    <div class="zone-card desert">
+                        <div class="zone-icon">🏜️</div>
+                        <h4>Désert</h4>
+                        <p>Scorpion, Vautour, Serpent</p>
+                        <span class="zone-bonus">+1 PV</span>
+                    </div>
+                    <div class="zone-card montagne">
+                        <div class="zone-icon">⛰️</div>
+                        <h4>Montagne</h4>
+                        <p>Aigle, Taureau, Lynx</p>
+                        <span class="zone-bonus">+1 PV</span>
+                    </div>
+                    <div class="zone-card marais">
+                        <div class="zone-icon">🌊</div>
+                        <h4>Marais</h4>
+                        <p>Crocodile, Grenouille, Sanglier</p>
+                        <span class="zone-bonus">+1 PV</span>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <p>💡 <strong>Règle Bonus :</strong> Quand un personnage combat dans <strong>SA zone</strong> → <strong>+1 PV</strong> pour ce combat !</p>
+                </div>
+            </section>
+
+            <!-- PRÉPARATION -->
+            <section class="regles-block">
+                <h2><span class="emoji">3️⃣</span> Préparation de la Partie</h2>
+                <ol>
+                    <li>Chaque joueur <strong>choisit 3 Héros + 12 Communs</strong> pour son deck</li>
+                    <li>Chaque joueur <strong>mélange son deck</strong></li>
+                    <li>Chaque joueur pioche <strong>5 cartes</strong> en main</li>
+                    <li>Placer le <strong>plateau avec les 4 zones</strong> au centre</li>
+                    <li>Distribuer <strong>0 Gemmes au départ</strong> (on les gagne en jouant)</li>
+                    <li>Le premier joueur est <strong>tiré au hasard</strong></li>
+                </ol>
+            </section>
+
+            <!-- DÉROULEMENT PARTIE -->
+            <section class="regles-block">
+                <h2><span class="emoji">4️⃣</span> Déroulement d'une Partie</h2>
+                <ul>
+                    <li>🏆 La partie se joue en <strong>3 manches maximum</strong></li>
+                    <li>⭐ Le premier à gagner <strong>2 manches</strong> remporte la partie</li>
+                    <li>⚖️ Si égalité 1-1 → <strong>Manche finale</strong> avec 2 personnages seulement</li>
+                </ul>
+            </section>
+
+            <!-- DÉROULEMENT TOUR -->
+            <section class="regles-block">
+                <h2><span class="emoji">5️⃣</span> Déroulement d'un Tour (3 Phases)</h2>
+
+                <div class="phases-list">
+                    <div class="phase-item">
+                        <div class="phase-number">1</div>
+                        <div class="phase-content">
+                            <h4>🎴 Phase d'Invocation</h4>
+                            <p>Chaque joueur pose <strong>jusqu'à 3 personnages</strong> de sa main. Placez-les sur les <strong>zones de votre choix</strong>.</p>
+                            <p><em>💡 Conseil : 1 défenseur + 2 attaquants</em></p>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-number">2</div>
+                        <div class="phase-content">
+                            <h4>⚔️ Phase de Combat</h4>
+                            <p>Les personnages s'affrontent <strong>zone par zone</strong>.</p>
+                            <p><strong>Calcul : Dégâts = ATK - DEF</strong></p>
+                            <p>Personnage éliminé (0 PV) = <strong>1 point pour l'adversaire</strong></p>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-number">3</div>
+                        <div class="phase-content">
+                            <h4>💎 Phase de Récompense</h4>
+                            <p>Le gagnant de la manche gagne <strong>2 Gemmes</strong>.</p>
+                            <p>Utilisation <strong>immédiate possible</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SYSTÈME DE GEMMES -->
+            <section class="regles-block">
+                <h2><span class="emoji">6️⃣</span> Système de Gemmes 💎</h2>
+                <p>Les Gemmes permettent d'<strong>améliorer temporairement</strong> vos personnages pendant un combat !</p>
+
+                <table class="regles-table">
+                    <thead>
+                        <tr>
+                            <th>Coût</th>
+                            <th>Effet</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2 💎</td>
+                            <td><strong>+1 PV</strong> à un personnage (ce combat uniquement)</td>
+                        </tr>
+                        <tr>
+                            <td>3 💎</td>
+                            <td><strong>+1 Attaque</strong> à un personnage (ce combat uniquement)</td>
+                        </tr>
+                        <tr>
+                            <td>3 💎</td>
+                            <td><strong>+1 Défense</strong> à un personnage (ce combat uniquement)</td>
+                        </tr>
+                        <tr>
+                            <td>5 💎</td>
+                            <td><strong>Activer la capacité spéciale</strong> d'un Héros ⚡</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box warning">
+                    <p>⚠️ <strong>Important :</strong> Les bonus de Gemmes sont <strong>temporaires</strong> (1 combat uniquement). Cela empêche qu'un joueur devienne imbattable !</p>
+                </div>
+            </section>
+
+            <!-- CAPACITÉS SPÉCIALES -->
+            <section class="regles-block">
+                <h2><span class="emoji">7️⃣</span> Capacités Spéciales des Héros ⚡</h2>
+                <p>Chaque Héros possède <strong>1 capacité unique</strong>.</p>
+                <ul>
+                    <li><strong>Activation :</strong> 5 Gemmes</li>
+                    <li><strong>Limite :</strong> 1 fois par partie</li>
+                </ul>
+
+                <h3>Exemples de Capacités</h3>
+                <div class="capacites-grid">
+                    <div class="capacite-card">
+                        <div class="animal-icon">🐻</div>
+                        <h5>Ours</h5>
+                        <div class="capacite-name">Rempart</div>
+                        <p>+2 Défense ce tour</p>
+                    </div>
+                    <div class="capacite-card">
+                        <div class="animal-icon">🦌</div>
+                        <h5>Cerf</h5>
+                        <div class="capacite-name">Esquive</div>
+                        <p>Annule 1 attaque</p>
+                    </div>
+                    <div class="capacite-card">
+                        <div class="animal-icon">🐺</div>
+                        <h5>Loup</h5>
+                        <div class="capacite-name">Meute</div>
+                        <p>Invoque 1 Commun supplémentaire</p>
+                    </div>
+                    <div class="capacite-card">
+                        <div class="animal-icon">🦂</div>
+                        <h5>Scorpion</h5>
+                        <div class="capacite-name">Piqûre</div>
+                        <p>+2 Attaque mais -1 Défense</p>
+                    </div>
+                    <div class="capacite-card">
+                        <div class="animal-icon">🦅</div>
+                        <h5>Aigle</h5>
+                        <div class="capacite-name">Frappe Aérienne</div>
+                        <p>Ignore la Défense adverse</p>
+                    </div>
+                    <div class="capacite-card">
+                        <div class="animal-icon">🐊</div>
+                        <h5>Crocodile</h5>
+                        <div class="capacite-name">Mâchoires</div>
+                        <p>Double les dégâts si PV adverses &lt; 3</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RÈGLES D'ÉQUILIBRAGE -->
+            <section class="regles-block">
+                <h2><span class="emoji">8️⃣</span> Règles d'Équilibrage</h2>
+                <p>Pour garantir des parties <strong>justes et amusantes</strong> :</p>
+                <ul>
+                    <li>📊 <strong>Plafond de Stats :</strong> Aucune stat ne peut dépasser <strong>10</strong></li>
+                    <li>⏲️ <strong>Bonus Temporaires :</strong> Les bonus Gemmes valent <strong>1 combat uniquement</strong></li>
+                    <li>⚡ <strong>Capacités Limitées :</strong> <strong>1 utilisation par partie</strong> par Héros</li>
+                    <li>🃏 <strong>Handicap Amical :</strong> Le perdant de la manche pioche <strong>1 carte bonus</strong></li>
+                </ul>
+            </section>
+
+            <!-- MODE MULTIJOUEUR -->
+            <section class="regles-block">
+                <h2><span class="emoji">9️⃣</span> Mode Multijoueur (3-4 Joueurs)</h2>
+                <p>Pour des parties encore plus épiques avec <strong>alliances et trahisons</strong> !</p>
+
+                <h3>Modes de Jeu</h3>
+                <ul>
+                    <li>👥 <strong>Mode Équipes (2v2) :</strong> Formez des duos et combattez ensemble</li>
+                    <li>🏆 <strong>Mode Chacun pour Soi :</strong> Tous contre tous - le dernier debout gagne</li>
+                </ul>
+
+                <h3>🃏 Cartes Spéciales Multijoueur</h3>
+                <ul>
+                    <li>🤝 <strong>Carte Alliance :</strong> 2 joueurs combinent leurs Gemmes (1 fois par partie)</li>
+                    <li>🗡️ <strong>Carte Trahison :</strong> Voler 3 Gemmes à un "allié" (1 fois par partie)</li>
+                </ul>
+
+                <p><strong>Rotation des tours :</strong> Dans le sens horaire | <strong>Durée :</strong> 25-30 minutes</p>
+            </section>
+
+            <!-- CONDITIONS DE VICTOIRE -->
+            <section class="regles-block">
+                <h2><span class="emoji">⭐</span> Conditions de Victoire</h2>
+                
+                <div class="highlight-box success">
+                    <p>🏆 <strong>Victoire Standard :</strong> Le premier joueur à remporter <strong>2 manches</strong> gagne la partie !</p>
+                </div>
+
+                <ul>
+                    <li>✔️ Gagnez une manche en éliminant plus de personnages adverses</li>
+                    <li>✔️ Utilisez vos Gemmes stratégiquement</li>
+                    <li>✔️ Activez les capacités de vos Héros au bon moment</li>
+                </ul>
+            </section>
+
+            <!-- RÉSUMÉ RAPIDE -->
+            <section class="regles-block">
+                <h2><span class="emoji">📝</span> Résumé Rapide</h2>
+
+                <div class="quick-summary">
+                    <div class="summary-item">
+                        <div class="summary-icon">🃏</div>
+                        <h5>MATÉRIEL</h5>
+                        <p>18 Héros<br>36 Communs<br>1 Plateau 4 zones<br>40 Gemmes</p>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-icon">🎯</div>
+                        <h5>BUT</h5>
+                        <p>Gagner<br><strong>2 manches</strong></p>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-icon">⏰</div>
+                        <h5>TOUR</h5>
+                        <p>1. Invoquer 3 persos<br>2. Placer sur zones<br>3. Combattre (ATK-DEF)<br>4. Gagner Gemmes</p>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-icon">💎</div>
+                        <h5>GEMMES</h5>
+                        <p>+1 stat = 2-3 💎<br>Capacité = 5 💎</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- POURQUOI CES RÈGLES -->
+            <section class="regles-block">
+                <h2><span class="emoji">🔥</span> Pourquoi ces Règles ?</h2>
+                <ul>
+                    <li>🧮 <strong>Calculs Simples :</strong> Soustractions faciles (ATK - DEF)</li>
+                    <li>🎯 <strong>Décisions Tactiques :</strong> Choix intéressants à chaque tour</li>
+                    <li>💎 <strong>Gestion de Ressources :</strong> Deck + Gemmes = stratégie</li>
+                    <li>🤝 <strong>Interaction Sociale :</strong> Alliances, zones, capacités</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Complexité idéale pour 8-11 ans :</strong> Temps de partie 20-30 min, attention span adapté !</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">PRIMAL LEGIONS</span>
+                    <p>&copy; 2026 PRIMAL LEGIONS. Tous droits réservés.</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html#univers">Univers</a>
+                    <a href="index.html#histoire">Histoire</a>
+                    <a href="index.html#factions">Factions</a>
+                    <a href="galerie.html">Galerie</a>
+                    <a href="index.html#regles">Regles</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">&#8593;</button>
+
+    <!-- Print Button -->
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimer</button>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Back to top functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>
