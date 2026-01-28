@@ -1,0 +1,514 @@
+/* ==========================================================================
+   PRIMAL LEGIONS - Characters Page Styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Page Specific Styles
+   -------------------------------------------------------------------------- */
+.page-personnages {
+    background: var(--color-bg-darker);
+}
+
+/* Hero Small Variant */
+.hero-small {
+    min-height: 50vh;
+    padding-top: 100px;
+}
+
+.page-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: var(--space-sm);
+    color: var(--color-accent-primary);
+    text-shadow: 0 0 40px rgba(201, 162, 39, 0.5);
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   Map Section
+   -------------------------------------------------------------------------- */
+.map-section {
+    background: linear-gradient(180deg, var(--color-bg-darker), var(--color-bg-dark));
+}
+
+.map-container {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: var(--space-lg);
+    align-items: start;
+}
+
+.map-wrapper {
+    position: relative;
+    background: var(--color-bg-card);
+    border-radius: 16px;
+    border: var(--border-subtle);
+    padding: var(--space-md);
+    overflow: hidden;
+}
+
+.map-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at 30% 40%, rgba(45, 90, 39, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 60%, rgba(26, 74, 94, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.south-america-map {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.continent {
+    transition: all 0.3s ease;
+}
+
+.region {
+    transition: opacity 0.3s ease;
+}
+
+.marker {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.marker:hover {
+    transform: scale(1.5);
+}
+
+.marker circle {
+    transition: all 0.3s ease;
+}
+
+.ocean-label {
+    fill: var(--color-text-muted);
+    font-family: var(--font-display);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+}
+
+/* Map Info Panel */
+.map-info-panel {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background: rgba(18, 18, 26, 0.95);
+    border: var(--border-subtle);
+    border-radius: 12px;
+    padding: var(--space-md);
+    min-width: 200px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.map-info-panel.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.map-info-panel .info-emoji {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: var(--space-xs);
+}
+
+.map-info-panel .info-name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--color-accent-primary);
+    text-align: center;
+    margin-bottom: 0.3rem;
+}
+
+.map-info-panel .info-title {
+    font-style: italic;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: var(--space-xs);
+}
+
+.map-info-panel .info-location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+}
+
+/* Map Legend */
+.map-legend {
+    background: var(--color-bg-card);
+    border-radius: 12px;
+    border: var(--border-subtle);
+    padding: var(--space-md);
+}
+
+.map-legend h4 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--color-accent-primary);
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.legend-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.map-legend .legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.map-legend .legend-item span:last-child {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   Characters Section
+   -------------------------------------------------------------------------- */
+.characters-section {
+    background: var(--color-bg-dark);
+}
+
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    flex-wrap: wrap;
+}
+
+.filter-tab {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-text-muted);
+    border-radius: 4px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+}
+
+.filter-tab:hover {
+    border-color: var(--color-accent-primary);
+    color: var(--color-accent-primary);
+}
+
+.filter-tab.active {
+    background: var(--color-accent-primary);
+    border-color: var(--color-accent-primary);
+    color: var(--color-bg-dark);
+}
+
+/* Characters Grid */
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+}
+
+/* Character Card */
+.character-card {
+    background: var(--color-bg-card);
+    border-radius: 12px;
+    border: var(--border-subtle);
+    overflow: hidden;
+    transition: all var(--transition-medium);
+    cursor: pointer;
+}
+
+.character-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-glow);
+}
+
+.character-card[data-faction="sauvages"]:hover {
+    border-color: var(--faction-sauvages-glow);
+    box-shadow: 0 0 30px rgba(74, 156, 61, 0.3);
+}
+
+.character-card[data-faction="abysses"]:hover {
+    border-color: var(--faction-abysses-glow);
+    box-shadow: 0 0 30px rgba(45, 138, 184, 0.3);
+}
+
+.character-card[data-faction="dunes"]:hover {
+    border-color: var(--faction-dunes-glow);
+    box-shadow: 0 0 30px rgba(212, 168, 75, 0.3);
+}
+
+.character-card[data-faction="nuit"]:hover {
+    border-color: var(--faction-nuit-glow);
+    box-shadow: 0 0 30px rgba(107, 63, 160, 0.3);
+}
+
+.character-card.hidden {
+    display: none;
+}
+
+/* Character Image */
+.character-image {
+    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.character-card[data-faction="sauvages"] .character-image {
+    background: linear-gradient(180deg, var(--faction-sauvages), rgba(0,0,0,0.8));
+}
+
+.character-card[data-faction="abysses"] .character-image {
+    background: linear-gradient(180deg, var(--faction-abysses), rgba(0,0,0,0.8));
+}
+
+.character-card[data-faction="dunes"] .character-image {
+    background: linear-gradient(180deg, var(--faction-dunes), rgba(0,0,0,0.8));
+}
+
+.character-card[data-faction="nuit"] .character-image {
+    background: linear-gradient(180deg, var(--faction-nuit), rgba(0,0,0,0.8));
+}
+
+.character-placeholder {
+    font-size: 5rem;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+}
+
+.character-card:hover .character-placeholder {
+    transform: scale(1.1);
+}
+
+.character-faction-badge {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.character-faction-badge.sauvages {
+    background: var(--faction-sauvages-glow);
+    box-shadow: 0 0 10px var(--faction-sauvages-glow);
+}
+
+.character-faction-badge.abysses {
+    background: var(--faction-abysses-glow);
+    box-shadow: 0 0 10px var(--faction-abysses-glow);
+}
+
+.character-faction-badge.dunes {
+    background: var(--faction-dunes-glow);
+    box-shadow: 0 0 10px var(--faction-dunes-glow);
+}
+
+.character-faction-badge.nuit {
+    background: var(--faction-nuit-glow);
+    box-shadow: 0 0 10px var(--faction-nuit-glow);
+}
+
+/* Character Info */
+.character-info {
+    padding: var(--space-md);
+}
+
+.character-number {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.character-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--color-text-primary);
+    margin: 0.3rem 0;
+}
+
+.character-title {
+    font-style: italic;
+    color: var(--color-accent-primary);
+    font-size: 0.95rem;
+    margin-bottom: var(--space-sm);
+}
+
+.character-location {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+}
+
+.location-icon {
+    font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Back Section
+   -------------------------------------------------------------------------- */
+.back-section {
+    text-align: center;
+    padding: var(--space-lg) 0;
+    background: var(--color-bg-darker);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .map-container {
+        grid-template-columns: 1fr;
+    }
+
+    .map-legend {
+        order: -1;
+    }
+
+    .legend-items {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-small {
+        min-height: 40vh;
+    }
+
+    .map-info-panel {
+        position: static;
+        margin-top: var(--space-md);
+        opacity: 1;
+        transform: none;
+    }
+
+    .filter-tabs {
+        gap: var(--space-xs);
+    }
+
+    .filter-tab {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .characters-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .characters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .character-image {
+        height: 180px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Animations
+   -------------------------------------------------------------------------- */
+@keyframes fadeInCard {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.character-card {
+    animation: fadeInCard 0.5s ease forwards;
+}
+
+.character-card:nth-child(1) { animation-delay: 0.05s; }
+.character-card:nth-child(2) { animation-delay: 0.1s; }
+.character-card:nth-child(3) { animation-delay: 0.15s; }
+.character-card:nth-child(4) { animation-delay: 0.2s; }
+.character-card:nth-child(5) { animation-delay: 0.25s; }
+.character-card:nth-child(6) { animation-delay: 0.3s; }
+.character-card:nth-child(7) { animation-delay: 0.35s; }
+.character-card:nth-child(8) { animation-delay: 0.4s; }
+.character-card:nth-child(9) { animation-delay: 0.45s; }
+.character-card:nth-child(10) { animation-delay: 0.5s; }
+.character-card:nth-child(11) { animation-delay: 0.55s; }
+.character-card:nth-child(12) { animation-delay: 0.6s; }
+.character-card:nth-child(13) { animation-delay: 0.65s; }
+.character-card:nth-child(14) { animation-delay: 0.7s; }
+.character-card:nth-child(15) { animation-delay: 0.75s; }
+.character-card:nth-child(16) { animation-delay: 0.8s; }
+.character-card:nth-child(17) { animation-delay: 0.85s; }
+.character-card:nth-child(18) { animation-delay: 0.9s; }
+.character-card:nth-child(19) { animation-delay: 0.95s; }
+.character-card:nth-child(20) { animation-delay: 1s; }
+
+/* Marker pulse animation */
+@keyframes markerPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+.marker circle:first-child {
+    animation: markerPulse 2s ease-in-out infinite;
+}

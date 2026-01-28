@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIMAL LEGIONS - FAQ pour les jeunes guerriers</title>
+    <meta name="description" content="Toutes les réponses aux questions que tu te poses sur PRIMAL LEGIONS !">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        .faq-hero {
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: var(--space-xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-bg-darker) 0%, var(--color-bg-dark) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .faq-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 50%, rgba(201, 162, 39, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(107, 63, 160, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .faq-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--color-accent-primary);
+            margin-bottom: var(--space-sm);
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq-hero p {
+            color: var(--color-text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--space-lg) var(--space-md);
+        }
+
+        /* Catégories FAQ */
+        .faq-category {
+            margin-bottom: var(--space-lg);
+        }
+
+        .faq-category-title {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 1.5rem;
+            color: var(--color-accent-primary);
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid rgba(201, 162, 39, 0.3);
+        }
+
+        .faq-category-icon {
+            font-size: 2rem;
+        }
+
+        /* Questions */
+        .faq-item {
+            margin-bottom: var(--space-sm);
+            background: var(--color-bg-card);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all var(--transition-fast);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(201, 162, 39, 0.3);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            color: var(--color-text-primary);
+            margin: 0;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        .faq-toggle {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(201, 162, 39, 0.1);
+            border-radius: 50%;
+            color: var(--color-accent-primary);
+            font-size: 1.5rem;
+            transition: all var(--transition-fast);
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+            background: var(--color-accent-primary);
+            color: var(--color-bg-dark);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 var(--space-md) var(--space-md);
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
+        .faq-answer-content strong {
+            color: var(--color-accent-primary);
+        }
+
+        .faq-answer-content ul {
+            margin: var(--space-sm) 0;
+            padding-left: var(--space-md);
+        }
+
+        .faq-answer-content li {
+            margin-bottom: var(--space-xs);
+        }
+
+        /* Tip box */
+        .faq-tip {
+            background: rgba(201, 162, 39, 0.1);
+            border-left: 4px solid var(--color-accent-primary);
+            padding: var(--space-sm) var(--space-md);
+            margin-top: var(--space-sm);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .faq-tip strong {
+            color: var(--color-accent-primary);
+        }
+
+        /* Emoji highlight */
+        .emoji-big {
+            font-size: 1.3rem;
+            margin-right: var(--space-xs);
+        }
+
+        /* Navigation */
+        .back-link {
+            position: fixed;
+            top: var(--space-md);
+            left: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(10, 10, 15, 0.9);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 30px;
+            color: var(--color-accent-primary);
+            font-family: var(--font-display);
+            text-decoration: none;
+            z-index: 100;
+            transition: all var(--transition-fast);
+        }
+
+        .back-link:hover {
+            background: rgba(201, 162, 39, 0.1);
+            border-color: var(--color-accent-primary);
+        }
+
+        /* CTA final */
+        .faq-cta {
+            text-align: center;
+            padding: var(--space-xl) var(--space-md);
+            background: linear-gradient(to bottom, transparent, rgba(201, 162, 39, 0.05));
+        }
+
+        .faq-cta h2 {
+            color: var(--color-accent-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .faq-cta p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        /* Footer FAQ */
+        .faq-footer {
+            text-align: center;
+            padding: var(--space-md);
+            color: var(--color-text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="back-link">
+        <span>&#8592;</span> Retour
+    </a>
+
+    <section class="faq-hero">
+        <h1>&#10067; FAQ - Questions Fréquentes</h1>
+        <p>Tout ce que tu dois savoir pour devenir un maître des PRIMAL LEGIONS !</p>
+    </section>
+
+    <div class="faq-container">
+
+        <!-- BASES DU JEU -->
+        <div class="faq-category">
+            <h2 class="faq-category-title">
+                <span class="faq-category-icon">&#127919;</span>
+                Les bases du jeu
+            </h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#129300;</span> C'est quoi PRIMAL LEGIONS ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>PRIMAL LEGIONS est un <strong>jeu de cartes stratégique</strong> où tu incarnes le chef d'une
+                            légion de guerriers animaux ! 🦁🦈🦂🦉</p>
+                        <p>Imagine des animaux super puissants qui se battent comme des gladiateurs. Tu dois utiliser
+                            ton intelligence pour battre ton adversaire !</p>
+                        <div class="faq-tip">
+                            <strong>💡 Le savais-tu ?</strong> "Primal" signifie "primitif" ou "originel" - ces
+                            guerriers sont connectés aux forces les plus anciennes de la nature !
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#128102;</span> À partir de quel âge peut-on jouer ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Le jeu est recommandé à partir de <strong>10 ans</strong>. Mais si tu sais bien compter et
+                            que tu aimes réfléchir, tu peux essayer même un peu plus jeune avec l'aide d'un adulte !</p>
+                        <p>Les règles sont faciles à comprendre, mais il faut de la stratégie pour devenir un champion
+                            🏆</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#9201;</span> Combien de temps dure une partie ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Une partie dure entre <strong>15 et 25 minutes</strong>. C'est parfait pour jouer pendant la
+                            récré ou avant le dîner !</p>
+                        <p>Certaines parties peuvent être plus rapides si un joueur fait des combos puissants, ou plus
+                            longues si les deux joueurs sont très forts 💪</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#128101;</span> Combien de joueurs peuvent jouer ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Le jeu de base est fait pour <strong>2 joueurs</strong> qui s'affrontent face à face.</p>
+                        <p>Mais il existe aussi un <strong>mode multijoueur</strong> avec des règles d'alliance et de
+                            trahison pour jouer à 3 ou 4 ! 🤝⚔️</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#127183;</span> De combien de cartes ai-je besoin pour jouer ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Chaque joueur a besoin de :</p>
+                        <ul>
+                            <li><strong>5 personnages</strong> de sa team (équipe)</li>
+                            <li>Un <strong>deck de cartes</strong> Action, Magie et Surprise</li>
+                        </ul>
+                        <p>Au total, le jeu complet contient <strong>30 cartes</strong> différentes !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LES RÈGLES -->
+        <div class="faq-category">
+            <h2 class="faq-category-title">
+                <span class="faq-category-icon">&#128214;</span>
+                Les règles du jeu
+            </h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#10084;</span> C'est quoi les cœurs ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Les cœurs représentent ta <strong>vie en tant que joueur</strong>. Tu commences avec
+                            <strong>10 cœurs</strong>.</p>
+                        <p>⚠️ Attention : ce ne sont PAS les points de vie de tes personnages ! Quand tu tombes à
+                            <strong>0 cœur</strong>, tu as perdu la partie.</p>
+                        <div class="faq-tip">
+                            <strong>💡 Astuce :</strong> Protège bien tes cœurs ! Parfois il vaut mieux sacrifier un
+                            personnage que de perdre des cœurs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#9876;</span> Comment on attaque ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Pendant ton tour, tu peux attaquer avec <strong>1 personnage</strong>. Tu choisis ta cible :
+                        </p>
+                        <ul>
+                            <li>Un <strong>personnage adverse</strong> pour l'éliminer</li>
+                            <li>Directement les <strong>cœurs du joueur</strong> adverse</li>
+                        </ul>
+                        <p><strong>Calcul des dégâts :</strong> ATK (attaque) - DEF (défense) = Dégâts</p>
+                        <p>Exemple : Si ton Lion a 3 ATK et l'ennemi a 1 DEF, tu fais 3-1 = <strong>2 dégâts</strong> !
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#128737;</span> C'est quoi la défense (DEF) ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>La défense <strong>réduit les dégâts</strong> que tu reçois. Plus ta DEF est haute, moins tu
+                            prends de dégâts !</p>
+                        <p>Mais attention : même avec une grosse défense, tu prends toujours <strong>minimum 1
+                                dégât</strong> si tu es touché.</p>
+                        <div class="faq-tip">
+                            <strong>💡 Exemple :</strong> Un Ours avec 2 DEF qui reçoit 3 dégâts ne perd que 1 PV
+                            (3-2=1).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#128128;</span> Que se passe-t-il quand un personnage meurt ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Quand un personnage tombe à <strong>0 PV</strong> (Points de Vie), il est
+                            <strong>éliminé</strong>.</p>
+                        <p>Sa carte va dans la <strong>défausse</strong>. Il ne peut plus combattre pour toi cette
+                            partie 😢</p>
+                        <p>Mais ne t'inquiète pas ! Tu peux toujours gagner même si tu perds des personnages.
+                            L'important c'est de réduire les cœurs adverses à 0 !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#9889;</span> C'est quoi les cartes Action ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Les cartes Action sont des <strong>attaques spéciales</strong> qui infligent des dégâts
+                            directs !</p>
+                        <ul>
+                            <li>Elles permettent d'éliminer ou d'affaiblir les personnages ennemis</li>
+                            <li>Tu les joues pendant ta <strong>phase d'action</strong></li>
+                            <li>Après utilisation, elles vont à la défausse</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#128302;</span> C'est quoi les cartes Magie ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Les cartes Magie servent à <strong>protéger et renforcer</strong> tes guerriers !</p>
+                        <ul>
+                            <li>🛡️ <strong>Bouclier</strong> : protège tes personnages</li>
+                            <li>💚 <strong>Régénération</strong> : soigne les PV</li>
+                            <li>💪 <strong>Boost</strong> : augmente ATK ou DEF</li>
+                        </ul>
+                        <p>Certaines cartes Magie peuvent être jouées en <strong>réaction</strong> à une attaque adverse
+                            !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#10071;</span> C'est quoi les cartes Surprise ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Les cartes Surprise sont les plus <strong>puissantes et imprévisibles</strong> ! 🎭</p>
+                        <ul>
+                            <li>Elles peuvent <strong>retourner une partie</strong> en ta faveur</li>
+                            <li>Certaines permettent la <strong>trahison</strong> ou le <strong>vol</strong></li>
+                            <li>Tu ne peux jouer qu'<strong>1 seule carte Surprise par tour</strong></li>
+                        </ul>
+                        <div class="faq-tip">
+                            <strong>💡 Attention :</strong> Certaines cartes Surprise ignorent les protections ! Garde
+                            toujours un œil sur ce que ton adversaire pourrait avoir en main.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LES FACTIONS -->
+        <div class="faq-category">
+            <h2 class="faq-category-title">
+                <span class="faq-category-icon">&#9876;</span>
+                Les 4 Factions
+            </h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#127794;</span> C'est quoi les Terres Sauvages ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Les <strong style="color: #4a9c3d;">Terres Sauvages</strong> sont les guerriers de la nature
+                            ! 🌲</p>
+                        <p><strong>Animaux :</strong> Lion, Ours, Loup, Cerf, Gorille</p>
+                        <p><strong>Style de jeu :</strong> Résistance et régénération. Ces guerriers sont durs à tuer et
+                            se soignent !</p>
+                        <p><strong>Bonus passif :</strong> Une fois par tour, réduis de 1 le premier dégât OU soigne +1
+                            PV.</p>
+                        <div class="faq-tip">
+                            <strong>💡 Parfait pour toi si :</strong> Tu aimes les parties longues et les guerriers
+                            solides qui ne meurent pas facilement.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#127754;</span> C'est quoi les Abysses ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Les <strong style="color: #2d8ab8;">Abysses</strong> sont les créatures des profondeurs
+                            océaniques ! 🌊</p>
+                        <p><strong>Animaux :</strong> Requin, Raie Manta, Poulpe, Méduse, Condor</p>
+                        <p><strong>Style de jeu :</strong> Contrôle et perturbation. Tu embêtes ton adversaire et
+                            contrôles le jeu !</p>
+                        <p><strong>Bonus passif :</strong> Une fois par tour, regarde la carte du dessus de la pioche
+                            adverse.</p>
+                        <div class="faq-tip">
+                            <strong>💡 Parfait pour toi si :</strong> Tu aimes les tactiques sournoises et savoir ce que
+                            prépare ton adversaire.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#127774;</span> C'est quoi les Dunes Noires ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Les <strong style="color: #d4a84b;">Dunes Noires</strong> sont les guerriers du désert
+                            brûlant ! ☀️</p>
+                        <p><strong>Animaux :</strong> Scorpion, Taureau, Serpent, Panthère, Guépard</p>
+                        <p><strong>Style de jeu :</strong> Agressivité et vitesse. Tu frappes fort et vite !</p>
+                        <p><strong>Bonus passif :</strong> Ta première attaque réussie chaque tour inflige +1 dégât.</p>
+                        <div class="faq-tip">
+                            <strong>💡 Parfait pour toi si :</strong> Tu aimes attaquer à fond et mettre la pression sur
+                            ton adversaire !
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#127769;</span> C'est quoi la Nuit Obsidienne ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>La <strong style="color: #6b3fa0;">Nuit Obsidienne</strong> regroupe les créatures de l'ombre
+                            ! 🌙</p>
+                        <p><strong>Animaux :</strong> Hibou, Renard, Araignée, Crocodile, Tigre</p>
+                        <p><strong>Style de jeu :</strong> Furtivité et manipulation. Tu voles et tu trompes l'ennemi !
+                        </p>
+                        <p><strong>Bonus passif :</strong> Une fois par tour, l'adversaire défausse 1 carte au hasard.
+                        </p>
+                        <div class="faq-tip">
+                            <strong>💡 Parfait pour toi si :</strong> Tu aimes être sournois et détruire les plans de
+                            ton adversaire de l'intérieur.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#129504;</span> Quelle faction choisir pour débuter ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Pour les débutants, on recommande :</p>
+                        <ul>
+                            <li><strong style="color: #4a9c3d;">Terres Sauvages</strong> - Facile à jouer, très
+                                résistant</li>
+                            <li><strong style="color: #d4a84b;">Dunes Noires</strong> - Simple et efficace, tu attaques
+                                !</li>
+                        </ul>
+                        <p>Les factions plus avancées :</p>
+                        <ul>
+                            <li><strong style="color: #2d8ab8;">Abysses</strong> - Demande de la réflexion</li>
+                            <li><strong style="color: #6b3fa0;">Nuit Obsidienne</strong> - Le plus technique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STRATÉGIES -->
+        <div class="faq-category">
+            <h2 class="faq-category-title">
+                <span class="faq-category-icon">&#129504;</span>
+                Astuces et stratégies
+            </h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#127942;</span> Comment gagner facilement ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Il n'y a pas de recette magique, mais voici des conseils :</p>
+                        <ul>
+                            <li>🎯 <strong>Concentre-toi sur l'objectif</strong> : réduire les cœurs adverses à 0</li>
+                            <li>🃏 <strong>Garde des cartes en réserve</strong> : ne joue pas tout d'un coup</li>
+                            <li>👀 <strong>Observe ton adversaire</strong> : essaie de deviner ses plans</li>
+                            <li>⚡ <strong>Utilise ton bonus passif</strong> : c'est gratuit chaque tour !</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#128161;</span> Dois-je protéger mes personnages ou attaquer ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Ça dépend de ta faction et de la situation !</p>
+                        <ul>
+                            <li><strong>Si tu joues Dunes Noires</strong> → Attaque, attaque, attaque !</li>
+                            <li><strong>Si tu joues Terres Sauvages</strong> → Garde tes personnages en vie</li>
+                            <li><strong>Si tu es en avance</strong> → Protège ton avantage</li>
+                            <li><strong>Si tu es en retard</strong> → Prends des risques !</li>
+                        </ul>
+                        <div class="faq-tip">
+                            <strong>💡 Règle d'or :</strong> Les cœurs de l'adversaire sont plus importants que tes
+                            personnages. Parfois, sacrifier un guerrier pour faire des dégâts est la bonne stratégie !
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#128064;</span> Comment savoir ce que mon adversaire va faire ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Observe bien ! Tu peux deviner beaucoup de choses :</p>
+                        <ul>
+                            <li>📊 <strong>Compte ses cartes</strong> : s'il en a peu, il est limité</li>
+                            <li>😊 <strong>Regarde son visage</strong> : s'il sourit, il a peut-être une bonne carte !
+                            </li>
+                            <li>🎴 <strong>Souviens-toi des cartes jouées</strong> : ça aide à deviner ce qu'il reste
+                            </li>
+                            <li>🧠 <strong>Réfléchis comme lui</strong> : que ferais-tu à sa place ?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUESTIONS DIVERSES -->
+        <div class="faq-category">
+            <h2 class="faq-category-title">
+                <span class="faq-category-icon">&#10067;</span>
+                Questions diverses
+            </h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#127757;</span> Pourquoi les animaux viennent d'Amérique du Sud ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>L'univers de PRIMAL LEGIONS se déroule en <strong>Amérique du Sud</strong> car c'est un
+                            continent incroyable avec :</p>
+                        <ul>
+                            <li>🌴 La plus grande forêt du monde (l'Amazonie)</li>
+                            <li>🏔️ Les plus hautes montagnes d'Amérique (les Andes)</li>
+                            <li>🏜️ Des déserts mystérieux (Atacama)</li>
+                            <li>🌊 Des côtes sauvages avec des créatures marines fascinantes</li>
+                        </ul>
+                        <p>Chaque guerrier est lié à un pays et un territoire unique !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#128241;</span> Y aura-t-il une version sur téléphone ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Oui ! PRIMAL LEGIONS sera disponible en :</p>
+                        <ul>
+                            <li>📱 <strong>Application mobile</strong> (iOS et Android)</li>
+                            <li>💻 <strong>Version web</strong> (jouable dans ton navigateur)</li>
+                            <li>🃏 <strong>Version physique</strong> (vraies cartes à collectionner)</li>
+                        </ul>
+                        <p>Reste connecté pour les annonces ! 🔔</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#129309;</span> Peut-on jouer en équipe ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Le mode de base est en <strong>1 contre 1</strong>, mais il existe des variantes :</p>
+                        <ul>
+                            <li>👥 <strong>Mode 2v2</strong> : Jouez en équipes de 2</li>
+                            <li>🤝 <strong>Mode Alliance</strong> : Des alliances temporaires qui peuvent être trahies !
+                            </li>
+                            <li>👑 <strong>Mode Tournoi</strong> : Affrontez plusieurs adversaires</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#128218;</span> Y aura-t-il de nouvelles cartes ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Absolument ! Le monde de PRIMAL LEGIONS va s'agrandir avec :</p>
+                        <ul>
+                            <li>🦎 De <strong>nouveaux personnages</strong> à découvrir</li>
+                            <li>⚡ De <strong>nouvelles cartes</strong> Action, Magie et Surprise</li>
+                            <li>🌍 Peut-être de <strong>nouvelles factions</strong> d'autres continents !</li>
+                        </ul>
+                        <p>L'aventure ne fait que commencer... 🚀</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3><span class="emoji-big">&#128172;</span> Je ne comprends pas une règle, que faire ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Pas de panique ! Voici ce que tu peux faire :</p>
+                        <ul>
+                            <li>📖 Relis la section <a href="index.html#regles"
+                                    style="color: var(--color-accent-primary);">Règles Officielles</a></li>
+                            <li>👨‍👩‍👧 Demande à un adulte ou un ami qui connaît le jeu</li>
+                            <li>🎮 Fais une partie d'essai pour tester</li>
+                            <li>💬 Contacte-nous via la page Contact !</li>
+                        </ul>
+                        <div class="faq-tip">
+                            <strong>💡 Conseil :</strong> En cas de doute pendant une partie, mettez-vous d'accord avec
+                            ton adversaire sur l'interprétation. Le plus important c'est de s'amuser !
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="faq-cta">
+        <h2>&#127775; Prêt à jouer ?</h2>
+        <p>Tu as toutes les réponses, maintenant c'est à toi de devenir le meilleur chef de légion !</p>
+        <a href="index.html#regles" class="btn btn-primary">Découvrir les règles complètes</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="faq-footer">
+        <p>&copy; 2025 PRIMAL LEGIONS - FAQ pour les jeunes guerriers</p>
+    </footer>
+
+    <script>
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const wasActive = faqItem.classList.contains('active');
+
+            // Ferme tous les autres
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Ouvre celui-ci si il n'était pas actif
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            }
+        }
+    </script>
+</body>
+
+</html>

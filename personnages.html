@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Guerriers - PRIMAL LEGIONS</title>
+    <meta name="description" content="Découvrez les 20 guerriers légendaires de PRIMAL LEGIONS, leurs origines et leurs territoires à travers l'Amérique du Sud.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/personnages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="page-personnages">
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">PRIMAL LEGIONS</span>
+            </a>
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#univers">Univers</a></li>
+                <li><a href="index.html#factions">Factions</a></li>
+                <li><a href="personnages.html" class="active">Guerriers</a></li>
+                <li><a href="index.html#regles">Règles</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero hero-small">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="page-title">Les Guerriers</h1>
+            <p class="page-subtitle">20 légendes. Un continent. Une guerre sans fin.</p>
+        </div>
+    </header>
+
+    <!-- Map Section -->
+    <section class="section map-section">
+        <div class="container">
+            <h2 class="section-title">Carte des Territoires</h2>
+            <div class="section-divider"></div>
+            <p class="section-intro">Chaque guerrier est lié à un territoire sacré d'Amérique du Sud. Survolez la carte pour découvrir leurs origines.</p>
+
+            <div class="map-container">
+                <div class="map-wrapper">
+                    <!-- SVG Map of South America -->
+                    <svg class="south-america-map" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background glow -->
+                        <defs>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                            <linearGradient id="landGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1a1a24"/>
+                                <stop offset="100%" style="stop-color:#12121a"/>
+                            </linearGradient>
+                            <linearGradient id="amazonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2d5a27"/>
+                                <stop offset="100%" style="stop-color:#1a3a18"/>
+                            </linearGradient>
+                            <linearGradient id="andesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4a3a2a"/>
+                                <stop offset="100%" style="stop-color:#2a2018"/>
+                            </linearGradient>
+                            <linearGradient id="oceanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1a4a5e"/>
+                                <stop offset="100%" style="stop-color:#0a2a3a"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Continent outline -->
+                        <path class="continent" d="M180,20 L220,25 L260,40 L290,60 L310,90 L320,120 L325,150 L320,180 L310,200 L300,220 L290,250 L285,280 L290,310 L300,340 L295,370 L280,400 L260,430 L230,455 L200,470 L170,475 L140,465 L120,440 L110,410 L105,380 L100,350 L95,320 L90,290 L85,260 L80,230 L75,200 L80,170 L90,140 L100,110 L120,80 L145,50 L170,30 Z" fill="url(#landGradient)" stroke="#c9a227" stroke-width="1" opacity="0.8"/>
+
+                        <!-- Amazon region -->
+                        <path class="region region-amazon" d="M150,80 L200,75 L250,85 L280,110 L290,140 L285,170 L270,190 L240,200 L200,205 L160,195 L130,175 L115,145 L120,115 L135,90 Z" fill="url(#amazonGradient)" opacity="0.6"/>
+
+                        <!-- Andes region -->
+                        <path class="region region-andes" d="M80,100 L100,90 L115,100 L120,130 L115,160 L105,200 L95,250 L90,300 L95,350 L105,400 L115,430 L100,440 L85,420 L75,380 L70,340 L70,300 L75,250 L80,200 L85,150 Z" fill="url(#andesGradient)" opacity="0.6"/>
+
+                        <!-- Character markers -->
+                        <!-- 1. Lion - Amazonie Brésil -->
+                        <g class="marker" data-character="lion" transform="translate(220, 120)">
+                            <circle r="8" fill="#c9a227" filter="url(#glow)"/>
+                            <circle r="4" fill="#ffd700"/>
+                        </g>
+
+                        <!-- 2. Tigresse - Amazonie Pérou -->
+                        <g class="marker" data-character="tigresse" transform="translate(160, 130)">
+                            <circle r="8" fill="#c9a227" filter="url(#glow)"/>
+                            <circle r="4" fill="#ffd700"/>
+                        </g>
+
+                        <!-- 3. Ours - Andes Colombie -->
+                        <g class="marker" data-character="ours" transform="translate(130, 70)">
+                            <circle r="8" fill="#c9a227" filter="url(#glow)"/>
+                            <circle r="4" fill="#ffd700"/>
+                        </g>
+
+                        <!-- 4. Panthère - Pantanal Brésil -->
+                        <g class="marker" data-character="panthere" transform="translate(250, 230)">
+                            <circle r="8" fill="#c9a227" filter="url(#glow)"/>
+                            <circle r="4" fill="#ffd700"/>
+                        </g>
+
+                        <!-- 5. Requin - Pacifique Chili -->
+                        <g class="marker" data-character="requin" transform="translate(60, 350)">
+                            <circle r="8" fill="#2d8ab8" filter="url(#glow)"/>
+                            <circle r="4" fill="#4ecdc4"/>
+                        </g>
+
+                        <!-- 6. Raie Manta - Galápagos -->
+                        <g class="marker" data-character="raie" transform="translate(50, 120)">
+                            <circle r="8" fill="#2d8ab8" filter="url(#glow)"/>
+                            <circle r="4" fill="#4ecdc4"/>
+                        </g>
+
+                        <!-- 7. Loup - Patagonie Argentine -->
+                        <g class="marker" data-character="loup" transform="translate(150, 420)">
+                            <circle r="8" fill="#c9a227" filter="url(#glow)"/>
+                            <circle r="4" fill="#ffd700"/>
+                        </g>
+
+                        <!-- 8. Renarde - Pampas Uruguay -->
+                        <g class="marker" data-character="renarde" transform="translate(220, 340)">
+                            <circle r="8" fill="#c9a227" filter="url(#glow)"/>
+                            <circle r="4" fill="#ffd700"/>
+                        </g>
+
+                        <!-- 9. Aigle - Andes Pérou -->
+                        <g class="marker" data-character="aigle" transform="translate(110, 160)">
+                            <circle r="8" fill="#c9a227" filter="url(#glow)"/>
+                            <circle r="4" fill="#ffd700"/>
+                        </g>
+
+                        <!-- 10. Hibou - Bolivie -->
+                        <g class="marker" data-character="hibou" transform="translate(170, 200)">
+                            <circle r="8" fill="#6b3fa0" filter="url(#glow)"/>
+                            <circle r="4" fill="#9b6fd0"/>
+                        </g>
+
+                        <!-- 11. Crocodile - Llanos Venezuela -->
+                        <g class="marker" data-character="crocodile" transform="translate(200, 55)">
+                            <circle r="8" fill="#c9a227" filter="url(#glow)"/>
+                            <circle r="4" fill="#ffd700"/>
+                        </g>
+
+                        <!-- 12. Serpent - Amazonie Colombie -->
+                        <g class="marker" data-character="serpent" transform="translate(165, 90)">
+                            <circle r="8" fill="#6b3fa0" filter="url(#glow)"/>
+                            <circle r="4" fill="#9b6fd0"/>
+                        </g>
+
+                        <!-- 13. Taureau - Pampas Argentine -->
+                        <g class="marker" data-character="taureau" transform="translate(190, 320)">
+                            <circle r="8" fill="#c9a227" filter="url(#glow)"/>
+                            <circle r="4" fill="#ffd700"/>
+                        </g>
+
+                        <!-- 14. Biche - Forêts Chili -->
+                        <g class="marker" data-character="biche" transform="translate(120, 390)">
+                            <circle r="8" fill="#4a9c3d" filter="url(#glow)"/>
+                            <circle r="4" fill="#6bdc5d"/>
+                        </g>
+
+                        <!-- 15. Scorpion - Atacama -->
+                        <g class="marker" data-character="scorpion" transform="translate(95, 260)">
+                            <circle r="8" fill="#d4a84b" filter="url(#glow)"/>
+                            <circle r="4" fill="#ffd700"/>
+                        </g>
+
+                        <!-- 16. Araignée - Amazonie Brésil -->
+                        <g class="marker" data-character="araignee" transform="translate(240, 150)">
+                            <circle r="8" fill="#6b3fa0" filter="url(#glow)"/>
+                            <circle r="4" fill="#9b6fd0"/>
+                        </g>
+
+                        <!-- 17. Gorille - Guyane -->
+                        <g class="marker" data-character="gorille" transform="translate(260, 70)">
+                            <circle r="8" fill="#4a9c3d" filter="url(#glow)"/>
+                            <circle r="4" fill="#6bdc5d"/>
+                        </g>
+
+                        <!-- 18. Guépard - Gran Chaco Paraguay -->
+                        <g class="marker" data-character="guepard" transform="translate(210, 270)">
+                            <circle r="8" fill="#d4a84b" filter="url(#glow)"/>
+                            <circle r="4" fill="#ffd700"/>
+                        </g>
+
+                        <!-- 19. Poulpe - Côte Pacifique Pérou -->
+                        <g class="marker" data-character="poulpe" transform="translate(70, 180)">
+                            <circle r="8" fill="#2d8ab8" filter="url(#glow)"/>
+                            <circle r="4" fill="#4ecdc4"/>
+                        </g>
+
+                        <!-- 20. Méduse - Atlantique Brésil -->
+                        <g class="marker" data-character="meduse" transform="translate(300, 180)">
+                            <circle r="8" fill="#2d8ab8" filter="url(#glow)"/>
+                            <circle r="4" fill="#4ecdc4"/>
+                        </g>
+
+                        <!-- Légende océans -->
+                        <text x="30" y="250" class="ocean-label">Pacifique</text>
+                        <text x="320" y="150" class="ocean-label">Atlantique</text>
+                    </svg>
+
+                    <!-- Floating info panel -->
+                    <div class="map-info-panel" id="mapInfoPanel">
+                        <div class="info-emoji"></div>
+                        <h3 class="info-name"></h3>
+                        <p class="info-title"></p>
+                        <p class="info-location"></p>
+                    </div>
+                </div>
+
+                <!-- Map Legend -->
+                <div class="map-legend">
+                    <h4>Légende</h4>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #4a9c3d;"></span>
+                            <span>Terres Sauvages</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #2d8ab8;"></span>
+                            <span>Abysses</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #d4a84b;"></span>
+                            <span>Dunes Noires</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #6b3fa0;"></span>
+                            <span>Nuit Obsidienne</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Grid Section -->
+    <section class="section characters-section">
+        <div class="container">
+            <h2 class="section-title">Les 20 Guerriers</h2>
+            <div class="section-divider"></div>
+
+            <!-- Filter tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">Tous</button>
+                <button class="filter-tab" data-filter="sauvages">Terres Sauvages</button>
+                <button class="filter-tab" data-filter="abysses">Abysses</button>
+                <button class="filter-tab" data-filter="dunes">Dunes Noires</button>
+                <button class="filter-tab" data-filter="nuit">Nuit Obsidienne</button>
+            </div>
+
+            <!-- Characters Grid -->
+            <div class="characters-grid">
+                <!-- 1. Lion -->
+                <article class="character-card" data-faction="sauvages" data-character="lion">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#129409;</span>
+                        </div>
+                        <div class="character-faction-badge sauvages"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#01</span>
+                        <h3 class="character-name">Lion</h3>
+                        <p class="character-title">Le Gardien de la Canopée</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Amazonie, Brésil</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2. Tigresse -->
+                <article class="character-card" data-faction="sauvages" data-character="tigresse">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#128047;</span>
+                        </div>
+                        <div class="character-faction-badge sauvages"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#02</span>
+                        <h3 class="character-name">Tigresse</h3>
+                        <p class="character-title">La Traqueuse des Lianes</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Amazonie, Pérou</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3. Ours -->
+                <article class="character-card" data-faction="sauvages" data-character="ours">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#128059;</span>
+                        </div>
+                        <div class="character-faction-badge sauvages"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#03</span>
+                        <h3 class="character-name">Ours</h3>
+                        <p class="character-title">Le Colosse des Andes</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Andes, Colombie</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4. Panthère -->
+                <article class="character-card" data-faction="nuit" data-character="panthere">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#128006;</span>
+                        </div>
+                        <div class="character-faction-badge nuit"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#04</span>
+                        <h3 class="character-name">Panthère</h3>
+                        <p class="character-title">L'Ombre du Pantanal</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Pantanal, Brésil</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5. Requin -->
+                <article class="character-card" data-faction="abysses" data-character="requin">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#129416;</span>
+                        </div>
+                        <div class="character-faction-badge abysses"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#05</span>
+                        <h3 class="character-name">Requin</h3>
+                        <p class="character-title">Le Faucheur des Profondeurs</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Pacifique, Chili</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6. Raie Manta -->
+                <article class="character-card" data-faction="abysses" data-character="raie">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#127754;</span>
+                        </div>
+                        <div class="character-faction-badge abysses"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#06</span>
+                        <h3 class="character-name">Raie Manta</h3>
+                        <p class="character-title">La Veilleuse des Courants</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Galápagos, Équateur</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 7. Loup -->
+                <article class="character-card" data-faction="sauvages" data-character="loup">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#128058;</span>
+                        </div>
+                        <div class="character-faction-badge sauvages"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#07</span>
+                        <h3 class="character-name">Loup</h3>
+                        <p class="character-title">Le Chef des Vents du Sud</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Patagonie, Argentine</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 8. Renarde -->
+                <article class="character-card" data-faction="sauvages" data-character="renarde">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#129418;</span>
+                        </div>
+                        <div class="character-faction-badge sauvages"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#08</span>
+                        <h3 class="character-name">Renarde</h3>
+                        <p class="character-title">La Rusée des Pampas</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Pampas, Uruguay</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 9. Aigle (Condor) -->
+                <article class="character-card" data-faction="sauvages" data-character="aigle">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#129413;</span>
+                        </div>
+                        <div class="character-faction-badge sauvages"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#09</span>
+                        <h3 class="character-name">Aigle</h3>
+                        <p class="character-title">Le Messager des Sommets</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Andes, Pérou</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 10. Hibou -->
+                <article class="character-card" data-faction="nuit" data-character="hibou">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#129417;</span>
+                        </div>
+                        <div class="character-faction-badge nuit"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#10</span>
+                        <h3 class="character-name">Hibou</h3>
+                        <p class="character-title">La Gardienne Nocturne</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Hauts plateaux, Bolivie</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 11. Crocodile -->
+                <article class="character-card" data-faction="abysses" data-character="crocodile">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#128010;</span>
+                        </div>
+                        <div class="character-faction-badge abysses"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#11</span>
+                        <h3 class="character-name">Crocodile</h3>
+                        <p class="character-title">Le Tyran des Marécages</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Llanos, Venezuela</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 12. Serpent -->
+                <article class="character-card" data-faction="nuit" data-character="serpent">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#128013;</span>
+                        </div>
+                        <div class="character-faction-badge nuit"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#12</span>
+                        <h3 class="character-name">Serpent</h3>
+                        <p class="character-title">L'Enchanteresse des Racines</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Amazonie, Colombie</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 13. Taureau -->
+                <article class="character-card" data-faction="sauvages" data-character="taureau">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#128002;</span>
+                        </div>
+                        <div class="character-faction-badge sauvages"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#13</span>
+                        <h3 class="character-name">Taureau</h3>
+                        <p class="character-title">Le Briseur des Plaines</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Pampas, Argentine</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 14. Biche -->
+                <article class="character-card" data-faction="sauvages" data-character="biche">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#129420;</span>
+                        </div>
+                        <div class="character-faction-badge sauvages"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#14</span>
+                        <h3 class="character-name">Biche</h3>
+                        <p class="character-title">L'Esprit Sylvestre</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Forêts du Sud, Chili</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 15. Scorpion -->
+                <article class="character-card" data-faction="dunes" data-character="scorpion">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#129410;</span>
+                        </div>
+                        <div class="character-faction-badge dunes"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#15</span>
+                        <h3 class="character-name">Scorpion</h3>
+                        <p class="character-title">Le Fléau des Sables Rouges</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Atacama, Pérou/Chili</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 16. Araignée -->
+                <article class="character-card" data-faction="nuit" data-character="araignee">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#128375;</span>
+                        </div>
+                        <div class="character-faction-badge nuit"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#16</span>
+                        <h3 class="character-name">Araignée</h3>
+                        <p class="character-title">La Tisseuse d'Ombres</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Amazonie, Brésil</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 17. Gorille -->
+                <article class="character-card" data-faction="sauvages" data-character="gorille">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#129421;</span>
+                        </div>
+                        <div class="character-faction-badge sauvages"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#17</span>
+                        <h3 class="character-name">Gorille</h3>
+                        <p class="character-title">Le Pilier de la Jungle</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Guyane française</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 18. Guépard -->
+                <article class="character-card" data-faction="dunes" data-character="guepard">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#128006;</span>
+                        </div>
+                        <div class="character-faction-badge dunes"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#18</span>
+                        <h3 class="character-name">Guépard</h3>
+                        <p class="character-title">L'Éclair du Chaco</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Gran Chaco, Paraguay</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 19. Poulpe -->
+                <article class="character-card" data-faction="abysses" data-character="poulpe">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#128025;</span>
+                        </div>
+                        <div class="character-faction-badge abysses"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#19</span>
+                        <h3 class="character-name">Poulpe</h3>
+                        <p class="character-title">Le Stratège Abyssal</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Côte pacifique, Pérou</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 20. Méduse -->
+                <article class="character-card" data-faction="abysses" data-character="meduse">
+                    <div class="character-image">
+                        <div class="character-placeholder">
+                            <span>&#127756;</span>
+                        </div>
+                        <div class="character-faction-badge abysses"></div>
+                    </div>
+                    <div class="character-info">
+                        <span class="character-number">#20</span>
+                        <h3 class="character-name">Méduse</h3>
+                        <p class="character-title">La Lumière Engloutie</p>
+                        <div class="character-location">
+                            <span class="location-icon">&#128205;</span>
+                            <span>Atlantique, Brésil</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Home -->
+    <section class="section back-section">
+        <div class="container">
+            <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">PRIMAL LEGIONS</span>
+                    <p>&copy; 2025 PRIMAL LEGIONS. Tous droits réservés.</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html#univers">Univers</a>
+                    <a href="index.html#factions">Factions</a>
+                    <a href="personnages.html">Guerriers</a>
+                    <a href="index.html#regles">Règles</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/personnages.js"></script>
+</body>
+</html>
