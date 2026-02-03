@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRIMAL LEGIONS - Règles des Enfants</title>
-    <meta name="description" content="Règles officielles complètes de PRIMAL LEGIONS pour enfants de 8-11 ans - Version Finale">
+    <title>PRIMAL LEGIONS - Règles Version 2.0</title>
+    <meta name="description" content="Règles officielles PRIMAL LEGIONS - Version 2.0 - Stats et règles validées">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,9 +47,9 @@
             z-index: 1;
         }
 
-        .regles-page-hero .date-badge {
-            background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
-            color: var(--color-bg-dark);
+        .regles-page-hero .version-badge {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
             padding: 0.5rem 1.5rem;
             border-radius: 30px;
             font-family: var(--font-display);
@@ -58,18 +58,7 @@
             margin-bottom: var(--space-md);
             position: relative;
             z-index: 1;
-        }
-
-        .regles-page-hero .version-badge {
-            background: rgba(40, 167, 69, 0.2);
-            border: 1px solid rgba(40, 167, 69, 0.5);
-            color: #28a745;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-bottom: var(--space-sm);
-            position: relative;
-            z-index: 1;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
         }
 
         .regles-page-hero p {
@@ -251,224 +240,209 @@
             background: rgba(201, 162, 39, 0.05);
         }
 
-        /* Zone Cards */
-        .zones-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-md);
-            margin: var(--space-md) 0;
+        .regles-table td:first-child {
+            text-align: left;
+            font-weight: 500;
         }
 
-        .zone-card {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            padding: var(--space-md);
-            text-align: center;
-            border: 2px solid transparent;
-            transition: all var(--transition-medium);
-        }
-
-        .zone-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .zone-card.foret {
-            border-color: rgba(74, 156, 61, 0.5);
-            background: linear-gradient(135deg, rgba(74, 156, 61, 0.1), rgba(0, 0, 0, 0.3));
-        }
-
-        .zone-card.desert {
-            border-color: rgba(212, 168, 75, 0.5);
-            background: linear-gradient(135deg, rgba(212, 168, 75, 0.1), rgba(0, 0, 0, 0.3));
-        }
-
-        .zone-card.montagne {
-            border-color: rgba(150, 150, 150, 0.5);
-            background: linear-gradient(135deg, rgba(150, 150, 150, 0.1), rgba(0, 0, 0, 0.3));
-        }
-
-        .zone-card.marais {
-            border-color: rgba(45, 138, 184, 0.5);
-            background: linear-gradient(135deg, rgba(45, 138, 184, 0.1), rgba(0, 0, 0, 0.3));
-        }
-
-        .zone-card .zone-icon {
-            font-size: 3rem;
-            margin-bottom: var(--space-xs);
-        }
-
-        .zone-card h4 {
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-xs);
-        }
-
-        .zone-card p {
-            font-size: 0.9rem;
-            margin-bottom: var(--space-xs);
-        }
-
-        .zone-card .zone-bonus {
-            background: rgba(201, 162, 39, 0.2);
-            color: var(--color-accent-primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-block;
-        }
-
-        /* Phases */
-        .phases-list {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
-        }
-
-        .phase-item {
-            display: flex;
-            gap: var(--space-md);
-            align-items: flex-start;
-            background: rgba(0, 0, 0, 0.2);
-            padding: var(--space-md);
-            border-radius: 15px;
-            border-left: 4px solid var(--color-accent-primary);
-        }
-
-        .phase-number {
-            background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
-            color: var(--color-bg-dark);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        /* Faction Header */
+        .faction-header {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            margin: var(--space-md) 0 var(--space-sm);
             font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .phase-content h4 {
-            color: var(--color-accent-primary);
-            margin-bottom: var(--space-xs);
-        }
-
-        .phase-content p {
-            margin-bottom: 0.5rem;
-        }
-
-        .phase-content ul {
-            margin-bottom: 0;
-        }
-
-        /* Capacités */
-        .capacites-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-md);
-            margin: var(--space-md) 0;
-        }
-
-        .capacite-card {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            padding: var(--space-md);
-            border: 1px solid rgba(201, 162, 39, 0.2);
-        }
-
-        .capacite-card .animal-icon {
-            font-size: 2rem;
-            margin-bottom: var(--space-xs);
-        }
-
-        .capacite-card h5 {
-            font-family: var(--font-display);
-            color: var(--color-accent-primary);
-            font-size: 1rem;
-            margin-bottom: var(--space-xs);
-        }
-
-        .capacite-card .capacite-name {
-            color: var(--color-text-primary);
             font-weight: 600;
-            margin-bottom: var(--space-xs);
+            font-size: 1.1rem;
         }
 
-        .capacite-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0;
+        .faction-header.sauvages {
+            background: linear-gradient(135deg, rgba(74, 156, 61, 0.2), rgba(74, 156, 61, 0.1));
+            border: 1px solid rgba(74, 156, 61, 0.5);
+            color: #6fcf5c;
+        }
+
+        .faction-header.abysses {
+            background: linear-gradient(135deg, rgba(45, 138, 184, 0.2), rgba(45, 138, 184, 0.1));
+            border: 1px solid rgba(45, 138, 184, 0.5);
+            color: #5eb8d9;
+        }
+
+        .faction-header.dunes {
+            background: linear-gradient(135deg, rgba(212, 168, 75, 0.2), rgba(212, 168, 75, 0.1));
+            border: 1px solid rgba(212, 168, 75, 0.5);
+            color: #e8c46c;
+        }
+
+        .faction-header.nuit {
+            background: linear-gradient(135deg, rgba(147, 112, 219, 0.2), rgba(147, 112, 219, 0.1));
+            border: 1px solid rgba(147, 112, 219, 0.5);
+            color: #b19cd9;
+        }
+
+        .faction-header.communs {
+            background: linear-gradient(135deg, rgba(150, 150, 150, 0.2), rgba(150, 150, 150, 0.1));
+            border: 1px solid rgba(150, 150, 150, 0.5);
+            color: #c0c0c0;
         }
 
         /* Highlight Box */
         .highlight-box {
-            background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(201, 162, 39, 0.05));
+            background: rgba(201, 162, 39, 0.1);
             border: 1px solid rgba(201, 162, 39, 0.3);
             border-radius: 12px;
             padding: var(--space-md);
             margin: var(--space-md) 0;
         }
 
-        .highlight-box.warning {
-            background: linear-gradient(135deg, rgba(220, 53, 69, 0.15), rgba(220, 53, 69, 0.05));
-            border-color: rgba(220, 53, 69, 0.3);
-        }
-
-        .highlight-box.success {
-            background: linear-gradient(135deg, rgba(40, 167, 69, 0.15), rgba(40, 167, 69, 0.05));
-            border-color: rgba(40, 167, 69, 0.3);
-        }
-
-        .highlight-box.info {
-            background: linear-gradient(135deg, rgba(45, 138, 184, 0.15), rgba(45, 138, 184, 0.05));
-            border-color: rgba(45, 138, 184, 0.3);
-        }
-
         .highlight-box p {
+            margin-bottom: var(--space-xs);
+        }
+
+        .highlight-box p:last-child {
             margin-bottom: 0;
         }
 
-        /* Composition Examples */
-        .composition-examples {
+        .highlight-box.success {
+            background: rgba(40, 167, 69, 0.1);
+            border-color: rgba(40, 167, 69, 0.3);
+        }
+
+        .highlight-box.warning {
+            background: rgba(255, 193, 7, 0.1);
+            border-color: rgba(255, 193, 7, 0.3);
+        }
+
+        .highlight-box.info {
+            background: rgba(23, 162, 184, 0.1);
+            border-color: rgba(23, 162, 184, 0.3);
+        }
+
+        /* Phases List */
+        .phases-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+
+        .phase-item {
+            display: flex;
+            gap: var(--space-md);
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: var(--space-md);
+            border-left: 4px solid var(--color-accent-primary);
+        }
+
+        .phase-number {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+            color: var(--color-bg-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .phase-content h4 {
+            color: var(--color-accent-primary);
+            margin-bottom: var(--space-xs);
+            font-size: 1.1rem;
+        }
+
+        .phase-content ul {
+            margin-bottom: 0;
+        }
+
+        /* Combat Example */
+        .combat-example {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: var(--space-md);
+            margin: var(--space-md) 0;
+            border: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .combat-example h4 {
+            color: var(--color-accent-primary);
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .combat-formula {
+            background: rgba(201, 162, 39, 0.15);
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            color: var(--color-accent-primary);
+            margin: var(--space-sm) 0;
+            font-size: 1.1rem;
+        }
+
+        .combat-result {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        /* Leader Power Cards */
+        .leader-powers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: var(--space-md);
             margin: var(--space-md) 0;
         }
 
-        .composition-card {
+        .leader-power-card {
             background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            padding: var(--space-md);
-            text-align: center;
-            border: 1px solid rgba(201, 162, 39, 0.2);
-        }
-
-        .composition-card h5 {
-            color: var(--color-accent-primary);
-            margin-bottom: var(--space-xs);
-            font-family: var(--font-display);
-        }
-
-        .composition-card .comp-detail {
-            font-size: 0.9rem;
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-xs);
-        }
-
-        .composition-card .comp-style {
-            background: rgba(201, 162, 39, 0.2);
-            color: var(--color-accent-primary);
-            padding: 0.3rem 0.8rem;
             border-radius: 15px;
-            font-size: 0.8rem;
+            padding: var(--space-md);
+            border: 2px solid rgba(201, 162, 39, 0.3);
+            transition: all var(--transition-medium);
+        }
+
+        .leader-power-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent-primary);
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.2);
+        }
+
+        .leader-power-card .leader-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .leader-power-card h5 {
+            font-family: var(--font-display);
+            color: var(--color-accent-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .leader-power-card .power-name {
+            color: var(--color-accent-secondary);
             font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .leader-power-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
         }
 
         /* Quick Summary */
         .quick-summary {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: var(--space-md);
             margin: var(--space-md) 0;
         }
@@ -480,15 +454,11 @@
             text-align: center;
         }
 
-        .summary-item .summary-icon {
-            font-size: 2rem;
-            margin-bottom: var(--space-xs);
-        }
-
-        .summary-item h5 {
+        .summary-item .summary-number {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: var(--color-accent-primary);
             font-family: var(--font-display);
-            margin-bottom: var(--space-xs);
         }
 
         .summary-item p {
@@ -496,153 +466,47 @@
             margin-bottom: 0;
         }
 
-        /* Flow Diagram */
-        .flow-diagram {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            padding: var(--space-lg);
-            margin: var(--space-md) 0;
-            text-align: center;
-        }
-
-        .flow-step {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
-            color: var(--color-bg-dark);
-            padding: 0.8rem 1.5rem;
-            border-radius: 10px;
-            font-family: var(--font-display);
-            font-weight: 600;
-            margin: 0.5rem;
-        }
-
-        .flow-arrow {
-            display: inline-block;
-            color: var(--color-accent-primary);
-            font-size: 1.5rem;
-            margin: 0 0.5rem;
-        }
-
-        /* Credits */
-        .credits-section {
-            background: linear-gradient(135deg, rgba(201, 162, 39, 0.1), rgba(0, 0, 0, 0.3));
-            border-radius: 20px;
-            padding: var(--space-lg);
-            margin-top: var(--space-xl);
-            text-align: center;
-            border: 1px solid rgba(201, 162, 39, 0.3);
-        }
-
-        .credits-section h2 {
-            justify-content: center;
-        }
-
-        .credits-groups {
+        /* Gem Table */
+        .gem-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: var(--space-md);
             margin: var(--space-md) 0;
         }
 
-        .credit-group {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            padding: var(--space-md);
-        }
-
-        .credit-group h4 {
-            color: var(--color-accent-primary);
-            margin-bottom: var(--space-xs);
-        }
-
-        .credit-group p {
-            margin-bottom: 0;
-            font-size: 0.95rem;
-        }
-
-        /* FAQ Inline */
-        .faq-item {
+        .gem-box {
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
+            border-radius: 15px;
             padding: var(--space-md);
-            margin-bottom: var(--space-sm);
-            border-left: 3px solid var(--color-accent-primary);
         }
 
-        .faq-item .question {
+        .gem-box h4 {
             color: var(--color-accent-primary);
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-        }
-
-        .faq-item .answer {
-            color: var(--color-text-secondary);
-            margin-bottom: 0;
-        }
-
-        /* Tips */
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-md);
-            margin: var(--space-md) 0;
-        }
-
-        .tip-card {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            padding: var(--space-md);
-            border: 1px solid rgba(201, 162, 39, 0.2);
-        }
-
-        .tip-card.beginner {
-            border-color: rgba(40, 167, 69, 0.5);
-        }
-
-        .tip-card.advanced {
-            border-color: rgba(220, 53, 69, 0.5);
-        }
-
-        .tip-card h5 {
-            color: var(--color-text-primary);
             margin-bottom: var(--space-sm);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .tip-card ul {
-            margin-bottom: 0;
-            font-size: 0.9rem;
+        .gem-list {
+            list-style: none;
+            padding: 0;
         }
 
-        /* Print Styles */
-        @media print {
-            .main-nav, .footer, .back-to-top, .print-btn, .toc {
-                display: none !important;
-            }
+        .gem-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
 
-            .regles-page-hero {
-                min-height: auto;
-                padding: 2rem;
-                background: white !important;
-            }
+        .gem-list li:last-child {
+            border-bottom: none;
+        }
 
-            .regles-page-hero h1 {
-                color: #1a1a2e !important;
-            }
-
-            .regles-block {
-                break-inside: avoid;
-                border: 1px solid #ccc;
-                background: white;
-                page-break-inside: avoid;
-            }
-
-            body {
-                background: white !important;
-                color: black !important;
-            }
+        .gem-cost {
+            color: var(--color-accent-primary);
+            font-weight: 600;
         }
 
         /* Back to top */
@@ -721,20 +585,34 @@
             .phase-number {
                 align-self: center;
             }
+        }
 
-            .flow-diagram {
-                padding: var(--space-md);
+        /* Print Styles */
+        @media print {
+            .main-nav, .footer, .back-to-top, .print-btn, .toc {
+                display: none !important;
             }
 
-            .flow-step {
-                display: block;
-                margin: var(--space-xs) auto;
+            .regles-page-hero {
+                min-height: auto;
+                padding: 2rem;
+                background: white !important;
             }
 
-            .flow-arrow {
-                display: block;
-                margin: var(--space-xs) auto;
-                transform: rotate(90deg);
+            .regles-page-hero h1 {
+                color: #1a1a2e !important;
+            }
+
+            .regles-block {
+                break-inside: avoid;
+                border: 1px solid #ccc;
+                background: white;
+                page-break-inside: avoid;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
             }
         }
     </style>
@@ -767,15 +645,14 @@
 
     <!-- Hero Section -->
     <header class="regles-page-hero">
-        <div class="version-badge">✅ Version 1.0 Finale</div>
-        <div class="date-badge">📅 28 Janvier 2026</div>
-        <h1>📜 Règles des Enfants</h1>
-        <p>Règles officielles complètes de PRIMAL LEGIONS - Version finale validée par les créateurs du jeu</p>
+        <div class="version-badge">✅ Version 2.0 - Stats et Règles Validées</div>
+        <h1>📜 PRIMAL LEGIONS - Règles</h1>
+        <p>Règles officielles complètes - Version finale validée</p>
         <div class="info-badges">
             <span class="info-badge">👥 2-4 Joueurs</span>
-            <span class="info-badge">⏱ 30-35 minutes</span>
-            <span class="info-badge">🎯 8-11 ans</span>
-            <span class="info-badge">🏰 20 places/armée</span>
+            <span class="info-badge">⏱ 20-30 minutes</span>
+            <span class="info-badge">🎯 8+ ans</span>
+            <span class="info-badge">🏆 Premier à 15 points</span>
         </div>
     </header>
 
@@ -787,610 +664,571 @@
             <nav class="toc">
                 <h2>📑 Sommaire</h2>
                 <div class="toc-grid">
-                    <a href="#materiel" class="toc-item"><span class="toc-emoji">🎴</span> Matériel</a>
-                    <a href="#composition" class="toc-item"><span class="toc-emoji">🏗️</span> Composition du Deck</a>
-                    <a href="#plateau" class="toc-item"><span class="toc-emoji">🗺️</span> Plateau de Jeu</a>
-                    <a href="#preparation" class="toc-item"><span class="toc-emoji">🎮</span> Préparation</a>
-                    <a href="#deroulement" class="toc-item"><span class="toc-emoji">🎯</span> Déroulement</a>
-                    <a href="#tour" class="toc-item"><span class="toc-emoji">🔄</span> Tour de Jeu</a>
-                    <a href="#diamants" class="toc-item"><span class="toc-emoji">💎</span> Système Diamants</a>
-                    <a href="#capacites" class="toc-item"><span class="toc-emoji">⚡</span> Capacités Spéciales</a>
-                    <a href="#strategie" class="toc-item"><span class="toc-emoji">🎲</span> Stratégie</a>
-                    <a href="#stats" class="toc-item"><span class="toc-emoji">📊</span> Statistiques</a>
+                    <a href="#stats" class="toc-item"><span class="toc-emoji">📊</span> Stats des Personnages</a>
+                    <a href="#composition" class="toc-item"><span class="toc-emoji">🎴</span> Composition des Pioches</a>
+                    <a href="#mise-en-place" class="toc-item"><span class="toc-emoji">🎮</span> Mise en Place</a>
+                    <a href="#tour" class="toc-item"><span class="toc-emoji">🔄</span> Déroulement d'un Tour</a>
+                    <a href="#elimination" class="toc-item"><span class="toc-emoji">💀</span> Élimination & Récompenses</a>
                     <a href="#victoire" class="toc-item"><span class="toc-emoji">🏆</span> Victoire</a>
-                    <a href="#faq" class="toc-item"><span class="toc-emoji">❓</span> FAQ</a>
+                    <a href="#pouvoirs" class="toc-item"><span class="toc-emoji">⚡</span> Pouvoirs des Leaders</a>
+                    <a href="#gemmes" class="toc-item"><span class="toc-emoji">💎</span> Système de Gemmes</a>
+                    <a href="#combat" class="toc-item"><span class="toc-emoji">⚔️</span> Exemples de Combat</a>
+                    <a href="#resume" class="toc-item"><span class="toc-emoji">📝</span> Résumé Ultra-Rapide</a>
                 </div>
             </nav>
 
-            <!-- MATÉRIEL -->
-            <section id="materiel" class="regles-block">
-                <h2><span class="emoji">🎴</span> Matériel</h2>
-                <ul>
-                    <li><strong>20 Héros</strong> - Cartes Or avec capacités spéciales</li>
-                    <li><strong>Guerriers Communs</strong> - Fantassin, Archer, Bouclier</li>
-                    <li><strong>1 Plateau</strong> divisé en 4 zones (Forêt, Désert, Montagne, Marais/Eau)</li>
-                    <li><strong>Diamants 💎</strong> - Monnaie du jeu</li>
-                    <li><strong>Cartes Surprise</strong> (optionnel)</li>
-                </ul>
-            </section>
-
-            <!-- COMPOSITION DU DECK -->
-            <section id="composition" class="regles-block">
-                <h2><span class="emoji">🏗️</span> Composition du Deck</h2>
-                <p>Chaque joueur constitue une armée de <strong>20 places maximum</strong> :</p>
-
-                <h3>Règle des Places</h3>
-                <table class="regles-table">
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>Places</th>
-                            <th>Stats de Base</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Guerriers Communs</strong></td>
-                            <td>1 place chacun</td>
-                            <td>1 PV, 1 ATK, 1 DEF</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Héros (Commandants)</strong></td>
-                            <td>5 places chacun</td>
-                            <td>Stats supérieures + Capacité spéciale</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="highlight-box info">
-                    <p>⚠️ <strong>Maximum 4 Héros par armée</strong> (4 × 5 = 20 places)</p>
-                </div>
-
-                <h3>Exemples de Compositions</h3>
-                <div class="composition-examples">
-                    <div class="composition-card">
-                        <h5>4 Héros</h5>
-                        <p class="comp-detail">20 places utilisées</p>
-                        <span class="comp-style">⭐ Armée de Qualité</span>
-                    </div>
-                    <div class="composition-card">
-                        <h5>3 Héros + 5 Guerriers</h5>
-                        <p class="comp-detail">15 + 5 = 20 places</p>
-                        <span class="comp-style">⚖️ Équilibrée</span>
-                    </div>
-                    <div class="composition-card">
-                        <h5>2 Héros + 10 Guerriers</h5>
-                        <p class="comp-detail">10 + 10 = 20 places</p>
-                        <span class="comp-style">👥 Nombreuse</span>
-                    </div>
-                    <div class="composition-card">
-                        <h5>1 Héros + 15 Guerriers</h5>
-                        <p class="comp-detail">5 + 15 = 20 places</p>
-                        <span class="comp-style">🐜 Armée de Masse</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- PLATEAU DE JEU -->
-            <section id="plateau" class="regles-block">
-                <h2><span class="emoji">🗺️</span> Plateau de Jeu</h2>
-                <p>Le plateau est divisé en <strong>4 zones</strong> :</p>
-
-                <div class="zones-grid">
-                    <div class="zone-card foret">
-                        <div class="zone-icon">🌳</div>
-                        <h4>Forêt</h4>
-                        <p>Arbres, jungle</p>
-                        <span class="zone-bonus">+1 PV ❤️</span>
-                    </div>
-                    <div class="zone-card desert">
-                        <div class="zone-icon">🏜️</div>
-                        <h4>Désert</h4>
-                        <p>Sables, plaines</p>
-                        <span class="zone-bonus">+1 PV ❤️</span>
-                    </div>
-                    <div class="zone-card montagne">
-                        <div class="zone-icon">⛰️</div>
-                        <h4>Montagne</h4>
-                        <p>Pics, air</p>
-                        <span class="zone-bonus">+1 PV ❤️</span>
-                    </div>
-                    <div class="zone-card marais">
-                        <div class="zone-icon">🌊</div>
-                        <h4>Marais / Eau</h4>
-                        <p>Bassins, océan</p>
-                        <span class="zone-bonus">+1 PV ❤️</span>
-                    </div>
-                </div>
-
-                <div class="highlight-box">
-                    <p>💡 <strong>Bonus de zone :</strong> Un personnage dans sa zone d'origine gagne <strong>+1 PV ❤️</strong></p>
-                    <p>📍 Chaque zone peut contenir plusieurs personnages</p>
-                    <p>⚔️ Les attaques peuvent cibler n'importe quelle zone</p>
-                </div>
-            </section>
-
-            <!-- PRÉPARATION -->
-            <section id="preparation" class="regles-block">
-                <h2><span class="emoji">🎮</span> Préparation</h2>
-                <ol>
-                    <li>Chaque joueur <strong>construit son armée</strong> (maximum 20 places)</li>
-                    <li>Chaque équipe est <strong>liée à une région précise</strong> (les personnages ne se mélangent pas)</li>
-                    <li><strong>Mélanger</strong> son deck</li>
-                    <li>Piocher <strong>5 cartes</strong> pour former sa main de départ</li>
-                    <li>Chaque joueur commence avec <strong>0 Diamant 💎</strong></li>
-                    <li>Placer le <strong>plateau au centre</strong></li>
-                </ol>
-            </section>
-
-            <!-- DÉROULEMENT DE LA PARTIE -->
-            <section id="deroulement" class="regles-block">
-                <h2><span class="emoji">🎯</span> Déroulement de la Partie</h2>
-                
-                <div class="highlight-box success">
-                    <p>🏆 La partie se joue en <strong>3 manches minimum</strong></p>
-                    <p>👑 Le joueur avec le <strong>plus de points après 3 manches</strong> gagne !</p>
-                </div>
-
-                <h3>Système de Points</h3>
-                <p>Chaque guerrier éliminé rapporte des points à l'adversaire :</p>
-                <table class="regles-table">
-                    <thead>
-                        <tr>
-                            <th>Type Éliminé</th>
-                            <th>Points Gagnés</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Guerrier Commun</td>
-                            <td><strong>1 point</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Héros</td>
-                            <td><strong>5 points</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3>En cas d'Égalité</h3>
-                <ul>
-                    <li>➡️ <strong>4ème manche</strong> de départage</li>
-                    <li>➡️ Si encore égalité : <strong>Manche finale</strong> avec seulement 2 personnages par joueur</li>
-                </ul>
-            </section>
-
-            <!-- TOUR DE JEU -->
-            <section id="tour" class="regles-block">
-                <h2><span class="emoji">🔄</span> Tour de Jeu</h2>
-                <p>Chaque tour se déroule en <strong>4 phases</strong> :</p>
-
-                <div class="phases-list">
-                    <div class="phase-item">
-                        <div class="phase-number">1</div>
-                        <div class="phase-content">
-                            <h4>🎴 INVOCATION</h4>
-                            <ul>
-                                <li>Vous pouvez invoquer <strong>jusqu'à 3 personnages</strong> de votre main</li>
-                                <li>Placez-les dans les zones du plateau</li>
-                                <li>💡 <em>Stratégie recommandée : 1 défenseur + 2 attaquants</em></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="phase-item">
-                        <div class="phase-number">2</div>
-                        <div class="phase-content">
-                            <h4>✨ AMÉLIORATION (optionnel)</h4>
-                            <ul>
-                                <li>Dépensez vos <strong>Diamants 💎</strong> pour améliorer vos personnages</li>
-                                <li>Les améliorations s'appliquent <strong>avant le combat</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="phase-item">
-                        <div class="phase-number">3</div>
-                        <div class="phase-content">
-                            <h4>⚔️ COMBAT</h4>
-                            <ul>
-                                <li>Vos personnages attaquent les personnages adverses</li>
-                                <li><strong>Calcul : ATK ⚔️ - DEF 🛡️ = Dégâts aux PV ❤️</strong></li>
-                                <li>Personnage éliminé (0 PV) = Points pour l'adversaire</li>
-                                <li>Les cartes éliminées vont dans la défausse</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="phase-item">
-                        <div class="phase-number">4</div>
-                        <div class="phase-content">
-                            <h4>💎 RÉCOMPENSE</h4>
-                            <ul>
-                                <li>À la fin de votre tour, vous gagnez <strong>3 à 5 Diamants 💎</strong></li>
-                                <li>✅ Victoire de la manche : <strong>5 Diamants</strong></li>
-                                <li>❌ Défaite : <strong>3 Diamants</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>Récapitulatif Visuel</h3>
-                <div class="flow-diagram">
-                    <span class="flow-step">1. INVOCATION</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">2. AMÉLIORATION</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">3. COMBAT</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">4. RÉCOMPENSE</span>
-                </div>
-            </section>
-
-            <!-- SYSTÈME DE DIAMANTS -->
-            <section id="diamants" class="regles-block">
-                <h2><span class="emoji">💎</span> Système de Diamants</h2>
-                <p>Les Diamants permettent d'acheter des <strong>Potions d'amélioration</strong> :</p>
-
-                <table class="regles-table">
-                    <thead>
-                        <tr>
-                            <th>Potion</th>
-                            <th>Coût</th>
-                            <th>Effet</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>❤️ Potion de Vie</td>
-                            <td><strong>10 💎</strong></td>
-                            <td>+1 PV permanent</td>
-                        </tr>
-                        <tr>
-                            <td>⚡ Potion de Vitesse</td>
-                            <td><strong>15 💎</strong></td>
-                            <td>+1 Initiative (joue en premier)</td>
-                        </tr>
-                        <tr>
-                            <td>🛡️ Potion de Défense</td>
-                            <td><strong>15 💎</strong></td>
-                            <td>+1 DEF permanent</td>
-                        </tr>
-                        <tr>
-                            <td>⚔️ Potion d'Attaque</td>
-                            <td><strong>20 💎</strong></td>
-                            <td>+1 ATK permanent</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="highlight-box warning">
-                    <p>⚠️ <strong>Limite maximale :</strong> Toutes les caractéristiques sont limitées à <strong>10 maximum</strong> (PV, ATK, DEF)</p>
-                </div>
-
-                <h3>Système d'Équilibrage (Anti-domination)</h3>
-                <p>Pour éviter qu'un joueur devienne trop puissant :</p>
-                <ul>
-                    <li>📉 <strong>Handicap progressif :</strong> Un joueur qui a gagné 2 parties de suite commence la prochaine avec -2 Diamants de récompense par tour</li>
-                    <li>📊 <strong>Plafond d'améliorations :</strong> Maximum 10 dans chaque stat</li>
-                    <li>🔄 <strong>Reset mensuel :</strong> Les améliorations permanentes peuvent être réinitialisées d'un commun accord</li>
-                </ul>
-            </section>
-
-            <!-- CAPACITÉS SPÉCIALES -->
-            <section id="capacites" class="regles-block">
-                <h2><span class="emoji">⚡</span> Capacités Spéciales des Héros</h2>
-                <p>Chaque Héros possède une <strong>capacité unique</strong> :</p>
-
-                <div class="highlight-box">
-                    <p>💰 <strong>Coût d'activation :</strong> 5 Diamants 💎💎💎💎💎</p>
-                    <p>⏱️ <strong>Utilisable :</strong> Une seule fois par partie</p>
-                </div>
-
-                <h3>Exemples de Capacités</h3>
-                <div class="capacites-grid">
-                    <div class="capacite-card">
-                        <div class="animal-icon">🦂</div>
-                        <h5>Le Scorpion</h5>
-                        <div class="capacite-name">Pince d'Alliance</div>
-                        <p>Boost un allié : +2 ATK pendant 1 tour</p>
-                    </div>
-                    <div class="capacite-card">
-                        <div class="animal-icon">🐂</div>
-                        <h5>Le Taureau</h5>
-                        <div class="capacite-name">Charge Dévastatrice</div>
-                        <p>Attaque avec la tête : double ATK sur 1 cible</p>
-                    </div>
-                    <div class="capacite-card">
-                        <div class="animal-icon">🐻</div>
-                        <h5>Le Colosse des Andes</h5>
-                        <div class="capacite-name">Forteresse Vivante</div>
-                        <p>Le personnage le plus fort du jeu : +3 DEF pendant 1 tour</p>
-                    </div>
-                    <div class="capacite-card">
-                        <div class="animal-icon">🐺</div>
-                        <h5>Le Loup</h5>
-                        <div class="capacite-name">Meute Sauvage</div>
-                        <p>Possède 2 cartes boost pour augmenter PV, DEF ou ATK d'un allié</p>
-                    </div>
-                    <div class="capacite-card">
-                        <div class="animal-icon">🦁</div>
-                        <h5>Le Lion</h5>
-                        <div class="capacite-name">Rugissement du Roi</div>
-                        <p>Tous vos personnages gagnent +1 ATK ce tour</p>
-                    </div>
-                    <div class="capacite-card">
-                        <div class="animal-icon">🦌</div>
-                        <h5>Le Cerf</h5>
-                        <div class="capacite-name">Gardien de la Forêt</div>
-                        <p>Spécialiste défense : commence avec 2 DEF (au lieu de 1)</p>
-                    </div>
-                </div>
-
-                <div class="highlight-box info">
-                    <p>📝 <em>Chaque enseignant/groupe peut définir les capacités des 20 Héros</em></p>
-                </div>
-            </section>
-
-            <!-- DIMENSION STRATÉGIQUE -->
-            <section id="strategie" class="regles-block">
-                <h2><span class="emoji">🎲</span> Dimension Stratégique</h2>
-
-                <h3>🤝 Alliances et Trahisons</h3>
-                <ul>
-                    <li>Les joueurs peuvent former des <strong>alliances temporaires</strong></li>
-                    <li>Les <strong>trahisons sont autorisées</strong> à tout moment</li>
-                    <li>Les alliances ne comptent pas pour la victoire finale (chacun pour soi)</li>
-                </ul>
-
-                <h3>🃏 Cartes Surprise (optionnel)</h3>
-                <ul>
-                    <li>Pioche spéciale de Cartes Surprise</li>
-                    <li>Effets : piège, boost temporaire, vol de ressources, etc.</li>
-                    <li>Ajoutent du chaos et de la stratégie</li>
-                </ul>
-
-                <h3>🎯 Zones d'Attaque</h3>
-                <ul>
-                    <li>Vous pouvez attaquer <strong>n'importe quelle zone</strong> du plateau</li>
-                    <li><strong>Stratégie collective :</strong> tous attaquent la même zone</li>
-                    <li><strong>Stratégie dispersée :</strong> attaquer plusieurs zones différentes</li>
-                </ul>
-            </section>
-
-            <!-- STATISTIQUES -->
+            <!-- STATS DES PERSONNAGES -->
             <section id="stats" class="regles-block">
-                <h2><span class="emoji">📊</span> Statistiques des Personnages</h2>
+                <h2><span class="emoji">📊</span> Stats des Personnages</h2>
 
-                <h3>Guerriers Communs (1 place)</h3>
+                <!-- Terres Sauvages -->
+                <div class="faction-header sauvages">
+                    🌲 TERRES SAUVAGES
+                </div>
                 <table class="regles-table">
                     <thead>
                         <tr>
-                            <th>Type</th>
+                            <th>Personnage</th>
                             <th>PV ❤️</th>
                             <th>ATK ⚔️</th>
                             <th>DEF 🛡️</th>
-                            <th>Spécialité</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🦁 <strong>Lion (LEADER)</strong></td>
+                            <td>7</td>
+                            <td>4</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>🦍 Gorille</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>🐻 Ours</td>
+                            <td>6</td>
+                            <td>2</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>🐺 Loup</td>
+                            <td>5</td>
+                            <td>2</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>🦌 Cerf</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Abysses -->
+                <div class="faction-header abysses">
+                    🌊 ABYSSES
+                </div>
+                <table class="regles-table">
+                    <thead>
+                        <tr>
+                            <th>Personnage</th>
+                            <th>PV ❤️</th>
+                            <th>ATK ⚔️</th>
+                            <th>DEF 🛡️</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🦈 <strong>Requin (LEADER)</strong></td>
+                            <td>7</td>
+                            <td>5</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>🐬 Dauphin</td>
+                            <td>5</td>
+                            <td>3</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>🦑 Raie Manta</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>🐙 Poulpe</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>🪼 Méduse</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Dunes Noires -->
+                <div class="faction-header dunes">
+                    🌞 DUNES NOIRES
+                </div>
+                <table class="regles-table">
+                    <thead>
+                        <tr>
+                            <th>Personnage</th>
+                            <th>PV ❤️</th>
+                            <th>ATK ⚔️</th>
+                            <th>DEF 🛡️</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🦂 <strong>Scorpion (LEADER)</strong></td>
+                            <td>6</td>
+                            <td>4</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>🐂 Taureau</td>
+                            <td>6</td>
+                            <td>4</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>🐆 Panthère</td>
+                            <td>5</td>
+                            <td>4</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>🐆 Guépard</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>🐍 Serpent</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Nuit Obsidienne -->
+                <div class="faction-header nuit">
+                    🌙 NUIT OBSIDIENNE
+                </div>
+                <table class="regles-table">
+                    <thead>
+                        <tr>
+                            <th>Personnage</th>
+                            <th>PV ❤️</th>
+                            <th>ATK ⚔️</th>
+                            <th>DEF 🛡️</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🐊 <strong>Crocodile (LEADER)</strong></td>
+                            <td>7</td>
+                            <td>4</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>🐅 Tigre</td>
+                            <td>5</td>
+                            <td>4</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>🦊 Renard</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>🦉 Hibou</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>🕷️ Araignée</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Guerriers Communs -->
+                <div class="faction-header communs">
+                    ⚔️ GUERRIERS COMMUNS (toutes factions)
+                </div>
+                <table class="regles-table">
+                    <thead>
+                        <tr>
+                            <th>Personnage</th>
+                            <th>PV ❤️</th>
+                            <th>ATK ⚔️</th>
+                            <th>DEF 🛡️</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>⚔️ Fantassin</td>
+                            <td>2</td>
                             <td>1</td>
                             <td>1</td>
-                            <td>1</td>
-                            <td>Équilibré</td>
                         </tr>
                         <tr>
                             <td>🏹 Archer</td>
                             <td>1</td>
                             <td>2</td>
                             <td>0</td>
-                            <td>Attaque</td>
                         </tr>
                         <tr>
                             <td>🛡️ Bouclier</td>
-                            <td>2</td>
+                            <td>3</td>
                             <td>0</td>
                             <td>2</td>
-                            <td>Défense</td>
                         </tr>
                     </tbody>
                 </table>
+            </section>
 
-                <h3>Héros (5 places) - Stats de Base</h3>
+            <!-- COMPOSITION DES PIOCHES -->
+            <section id="composition" class="regles-block">
+                <h2><span class="emoji">🎴</span> Composition des Pioches</h2>
+                <p>Chaque pioche contient <strong>21 cartes par faction</strong> :</p>
+
                 <table class="regles-table">
                     <thead>
                         <tr>
-                            <th>Caractéristique</th>
-                            <th>Valeur de Base</th>
+                            <th>Type de Carte</th>
+                            <th>Quantité</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>PV ❤️</td>
-                            <td>3-5 (selon le Héros)</td>
+                            <td>👑 Leader</td>
+                            <td><strong>1</strong></td>
                         </tr>
                         <tr>
-                            <td>ATK ⚔️</td>
-                            <td>2-4 (selon le Héros)</td>
+                            <td>⭐ Héros</td>
+                            <td><strong>4</strong></td>
                         </tr>
                         <tr>
-                            <td>DEF 🛡️</td>
-                            <td>1-2 (selon le Héros)</td>
+                            <td>⚔️ Fantassins</td>
+                            <td><strong>2</strong></td>
                         </tr>
                         <tr>
-                            <td>Capacité spéciale ⚡</td>
-                            <td>Unique</td>
+                            <td>🏹 Archers</td>
+                            <td><strong>2</strong></td>
+                        </tr>
+                        <tr>
+                            <td>🛡️ Boucliers</td>
+                            <td><strong>2</strong></td>
+                        </tr>
+                        <tr>
+                            <td>⚔️ Cartes Attaque</td>
+                            <td><strong>5</strong></td>
+                        </tr>
+                        <tr>
+                            <td>🛡️ Cartes Défense</td>
+                            <td><strong>5</strong></td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h4>Exemple : Le Colosse des Andes (le plus fort)</h4>
                 <div class="highlight-box">
-                    <p>❤️ <strong>PV :</strong> 5 | ⚔️ <strong>ATK :</strong> 4 | 🛡️ <strong>DEF :</strong> 2</p>
-                    <p>⚡ <strong>Capacité :</strong> Forteresse Vivante (+3 DEF pendant 1 tour)</p>
+                    <p>📊 <strong>Total :</strong> 1 + 4 + 2 + 2 + 2 + 5 + 5 = <strong>21 cartes</strong></p>
                 </div>
             </section>
 
-            <!-- CONDITIONS DE VICTOIRE -->
-            <section id="victoire" class="regles-block">
-                <h2><span class="emoji">🏆</span> Conditions de Victoire</h2>
+            <!-- MISE EN PLACE -->
+            <section id="mise-en-place" class="regles-block">
+                <h2><span class="emoji">🎮</span> Mise en Place</h2>
+                <ol>
+                    <li><strong>Choisir sa faction</strong> et prendre sa pioche</li>
+                    <li><strong>Mélanger</strong> la pioche</li>
+                    <li><strong>Retirer le Leader temporairement</strong></li>
+                    <li><strong>Piocher 2 personnages</strong></li>
+                    <li><strong>Remettre le Leader</strong> dans la pioche et mélanger</li>
+                    <li><strong>Piocher 3 cartes supplémentaires</strong> (total : 5 cartes en main)</li>
+                    <li><strong>Commencer avec 0 gemme</strong></li>
+                </ol>
 
                 <div class="highlight-box success">
-                    <p>👑 <strong>Pour gagner la partie :</strong> Avoir le plus de points après 3 manches</p>
-                    <p>📊 <strong>Points =</strong> Nombre de guerriers adverses éliminés (Commun = 1 pt, Héros = 5 pts)</p>
+                    <p>🎯 <strong>Main de départ :</strong> 2 personnages + 3 cartes variées = <strong>5 cartes</strong></p>
+                    <p>💎 <strong>Gemmes de départ :</strong> 0</p>
                 </div>
-
-                <h3>En cas d'Égalité</h3>
-                <ol>
-                    <li><strong>4ème manche</strong> de départage</li>
-                    <li>Si encore égalité : <strong>Manche finale</strong> (2 personnages seulement par joueur)</li>
-                    <li>Si toujours égalité : <strong>Victoire partagée</strong> ou mort subite (1 vs 1)</li>
-                </ol>
             </section>
 
-            <!-- CONSEILS STRATÉGIQUES -->
-            <section class="regles-block">
-                <h2><span class="emoji">💡</span> Conseils Stratégiques</h2>
+            <!-- DÉROULEMENT D'UN TOUR -->
+            <section id="tour" class="regles-block">
+                <h2><span class="emoji">🔄</span> Déroulement d'un Tour</h2>
 
-                <div class="tips-grid">
-                    <div class="tip-card beginner">
-                        <h5>🌟 Pour les Débutants</h5>
-                        <ul>
-                            <li>Place tes personnages dans leur zone pour le bonus +1 PV</li>
-                            <li>Utilise 1 défenseur + 2 attaquants par manche</li>
-                            <li>Économise tes Diamants pour les moments cruciaux</li>
-                            <li>Les Héros valent 5 points : protège-les !</li>
+                <div class="phases-list">
+                    <div class="phase-item">
+                        <div class="phase-number">1</div>
+                        <div class="phase-content">
+                            <h4>📥 DÉBUT DE TOUR</h4>
+                            <ul>
+                                <li>Piocher <strong>1 carte</strong></li>
+                                <li>Gagner <strong>1 gemme</strong> automatiquement</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-number">2</div>
+                        <div class="phase-content">
+                            <h4>�� INVOCATION (optionnel)</h4>
+                            <ul>
+                                <li>Invoquer <strong>1 personnage</strong> de ta main</li>
+                                <li>Le placer dans une zone</li>
+                                <li><strong>LIMITE :</strong> Max 3 personnages sur le terrain</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-number">3</div>
+                        <div class="phase-content">
+                            <h4>⚡ ACTIONS (optionnel, choisir UNE action)</h4>
+                            <ul>
+                                <li><strong>A)</strong> Jouer Carte Attaque (coût 2 gemmes) : +2 ATK ce tour</li>
+                                <li><strong>B)</strong> Jouer Carte Défense (coût 2 gemmes) : +2 DEF temporaire</li>
+                                <li><strong>C)</strong> Activer pouvoir Leader (coût 5 gemmes) : 1 fois par partie</li>
+                                <li><strong>D)</strong> Acheter amélioration permanente :
+                                    <ul>
+                                        <li>Potion de Vie (+1 PV) : <strong>8 gemmes</strong></li>
+                                        <li>Potion d'Attaque (+1 ATK) : <strong>10 gemmes</strong></li>
+                                        <li>Potion de Défense (+1 DEF) : <strong>8 gemmes</strong></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="highlight-box warning">
+                                <p>⚠️ <strong>LIMITE :</strong> Max 2 potions par personnage</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-number">4</div>
+                        <div class="phase-content">
+                            <h4>⚔️ COMBAT (obligatoire)</h4>
+                            <ul>
+                                <li>Attaquer avec <strong>au moins 1 personnage</strong></li>
+                                <li>Calcul : Si ATK > DEF → Dégâts = ATK - DEF</li>
+                                <li>Les dégâts touchent <strong>d'abord la DEF</strong> (elle diminue)</li>
+                                <li>Quand DEF = 0, les dégâts touchent les <strong>PV</strong></li>
+                                <li><strong>0 PV = KO</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-number">5</div>
+                        <div class="phase-content">
+                            <h4>🔚 FIN DE TOUR</h4>
+                            <ul>
+                                <li>Les effets temporaires diminuent</li>
+                                <li>Tour du joueur suivant</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ÉLIMINATION ET RÉCOMPENSES -->
+            <section id="elimination" class="regles-block">
+                <h2><span class="emoji">💀</span> Élimination et Récompenses</h2>
+                <p>Quand un personnage atteint <strong>0 PV</strong> :</p>
+                <ul>
+                    <li>Il est <strong>KO</strong> et retiré du jeu</li>
+                    <li>L'adversaire gagne :</li>
+                </ul>
+
+                <table class="regles-table">
+                    <thead>
+                        <tr>
+                            <th>Type Éliminé</th>
+                            <th>Points</th>
+                            <th>Gemmes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>⚔️ Commun KO</td>
+                            <td><strong>1 point</strong></td>
+                            <td><strong>+1 gemme</strong></td>
+                        </tr>
+                        <tr>
+                            <td>⭐ Héros KO</td>
+                            <td><strong>3 points</strong></td>
+                            <td><strong>+2 gemmes</strong></td>
+                        </tr>
+                        <tr>
+                            <td>👑 Leader KO</td>
+                            <td><strong>5 points</strong></td>
+                            <td><strong>+3 gemmes</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- VICTOIRE -->
+            <section id="victoire" class="regles-block">
+                <h2><span class="emoji">🏆</span> Victoire</h2>
+
+                <div class="highlight-box success">
+                    <p style="font-size: 1.3rem; text-align: center;">👑 <strong>Premier joueur à atteindre 15 POINTS gagne la partie !</strong></p>
+                </div>
+            </section>
+
+            <!-- POUVOIRS DES LEADERS -->
+            <section id="pouvoirs" class="regles-block">
+                <h2><span class="emoji">⚡</span> Pouvoirs des Leaders</h2>
+                <div class="highlight-box info">
+                    <p>💰 <strong>Coût :</strong> 5 gemmes | ⏱️ <strong>Limite :</strong> 1 fois par partie</p>
+                </div>
+
+                <div class="leader-powers-grid">
+                    <div class="leader-power-card">
+                        <div class="leader-icon">🦁</div>
+                        <h5>Lion</h5>
+                        <div class="power-name">Rugissement du Roi</div>
+                        <p>Tous tes personnages gagnent <strong>+1 ATK</strong> jusqu'à la fin du tour</p>
+                    </div>
+                    <div class="leader-power-card">
+                        <div class="leader-icon">🦈</div>
+                        <h5>Requin</h5>
+                        <div class="power-name">Frénésie Sanglante</div>
+                        <p>Attaque <strong>2 cibles</strong> au lieu d'une seule ce tour</p>
+                    </div>
+                    <div class="leader-power-card">
+                        <div class="leader-icon">🦂</div>
+                        <h5>Scorpion</h5>
+                        <div class="power-name">Venin Mortel</div>
+                        <p>Ton attaque <strong>ignore la DEF</strong> de la cible</p>
+                    </div>
+                    <div class="leader-power-card">
+                        <div class="leader-icon">🐊</div>
+                        <h5>Crocodile</h5>
+                        <div class="power-name">Mâchoires d'Acier</div>
+                        <p>Inflige <strong>3 dégâts directs</strong> à une cible (ignore DEF)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SYSTÈME DE GEMMES -->
+            <section id="gemmes" class="regles-block">
+                <h2><span class="emoji">💎</span> Système de Gemmes</h2>
+
+                <div class="gem-section">
+                    <div class="gem-box">
+                        <h4>📥 GAGNER DES GEMMES</h4>
+                        <ul class="gem-list">
+                            <li><span>Début de chaque tour</span> <span class="gem-cost">+1 💎</span></li>
+                            <li><span>Éliminer un Commun</span> <span class="gem-cost">+1 💎</span></li>
+                            <li><span>Éliminer un Héros</span> <span class="gem-cost">+2 💎</span></li>
+                            <li><span>Éliminer le Leader</span> <span class="gem-cost">+3 💎</span></li>
                         </ul>
                     </div>
-                    <div class="tip-card advanced">
-                        <h5>🔥 Pour les Joueurs Avancés</h5>
-                        <ul>
-                            <li>Les alliances temporaires peuvent renverser une partie</li>
-                            <li>Trahis au bon moment pour prendre l'avantage</li>
-                            <li>Cible les Héros adverses (5 points !)</li>
-                            <li>Le timing des capacités spéciales est crucial</li>
+                    <div class="gem-box">
+                        <h4>📤 DÉPENSER DES GEMMES</h4>
+                        <ul class="gem-list">
+                            <li><span>Carte Attaque/Défense</span> <span class="gem-cost">2 💎</span></li>
+                            <li><span>Pouvoir du Leader</span> <span class="gem-cost">5 💎</span></li>
+                            <li><span>Potion de Vie (+1 PV)</span> <span class="gem-cost">8 💎</span></li>
+                            <li><span>Potion de Défense (+1 DEF)</span> <span class="gem-cost">8 💎</span></li>
+                            <li><span>Potion d'Attaque (+1 ATK)</span> <span class="gem-cost">10 💎</span></li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- VARIANTES OPTIONNELLES -->
-            <section class="regles-block">
-                <h2><span class="emoji">🎨</span> Variantes Optionnelles</h2>
+            <!-- EXEMPLES DE COMBAT -->
+            <section id="combat" class="regles-block">
+                <h2><span class="emoji">⚔️</span> Exemples de Combat</h2>
 
-                <div class="capacites-grid">
-                    <div class="capacite-card">
-                        <h5>👥 Mode Équipes</h5>
-                        <p>2 vs 2 - Les alliés partagent leurs Diamants. Victoire commune.</p>
-                    </div>
-                    <div class="capacite-card">
-                        <h5>🏰 Mode Roi de la Colline</h5>
-                        <p>1 joueur défend une zone centrale. S'il survit 5 tours, il gagne !</p>
-                    </div>
-                    <div class="capacite-card">
-                        <h5>💀 Mode Survie</h5>
-                        <p>Tous contre un deck de boss contrôlé par le jeu. Coopération obligatoire.</p>
-                    </div>
+                <div class="combat-example">
+                    <h4>📌 Exemple 1 : Attaque bloquée</h4>
+                    <p>Mon <strong>Loup</strong> (5 PV, 2 ATK, 1 DEF) attaque un <strong>Scorpion</strong> (6 PV, 4 ATK, 2 DEF)</p>
+                    <div class="combat-formula">Calcul : 2 ATK - 2 DEF = 0 dégât</div>
+                    <p>→ Scorpion perd <strong>2 DEF</strong></p>
+                    <p>→ Scorpion devient : <strong>6 PV, 4 ATK, 0 DEF</strong></p>
+                    <p class="combat-result">💡 Il n'a plus de défense, prochaine attaque touchera ses PV</p>
                 </div>
-            </section>
 
-            <!-- FAQ -->
-            <section id="faq" class="regles-block">
-                <h2><span class="emoji">❓</span> Questions Fréquentes</h2>
+                <div class="combat-example">
+                    <h4>📌 Exemple 2 : Élimination</h4>
+                    <p>Mon <strong>Lion</strong> (7 PV, 4 ATK, 2 DEF) attaque un <strong>Archer</strong> (1 PV, 2 ATK, 0 DEF)</p>
+                    <div class="combat-formula">Calcul : 4 ATK - 0 DEF = 4 dégâts</div>
+                    <p>→ Archer perd 4 PV (il n'en avait que 1)</p>
+                    <p class="combat-result">💀 Archer KO → Je gagne <strong>1 point + 1 gemme</strong></p>
+                </div>
 
-                <div class="faq-item">
-                    <p class="question">Q: Combien de Héros maximum dans mon armée ?</p>
-                    <p class="answer">R: 4 Héros maximum (= 20 places)</p>
-                </div>
-                <div class="faq-item">
-                    <p class="question">Q: Puis-je mélanger des personnages de différentes régions ?</p>
-                    <p class="answer">R: Non, chaque équipe est liée à une région précise</p>
-                </div>
-                <div class="faq-item">
-                    <p class="question">Q: Les améliorations sont permanentes ?</p>
-                    <p class="answer">R: Oui, jusqu'au reset ou nouvelle partie</p>
-                </div>
-                <div class="faq-item">
-                    <p class="question">Q: Combien de fois puis-je utiliser la capacité spéciale d'un Héros ?</p>
-                    <p class="answer">R: Une seule fois par partie</p>
-                </div>
-                <div class="faq-item">
-                    <p class="question">Q: Que se passe-t-il si je n'ai plus de cartes en main ?</p>
-                    <p class="answer">R: Tu continues avec les personnages déjà sur le plateau et tu pioches au tour suivant (si le deck n'est pas vide)</p>
-                </div>
-                <div class="faq-item">
-                    <p class="question">Q: Les Diamants se gardent d'une partie à l'autre ?</p>
-                    <p class="answer">R: Cela dépend de votre règle maison (recommandé : Non pour plus d'équité)</p>
+                <div class="combat-example">
+                    <h4>📌 Exemple 3 : Dégâts partiels</h4>
+                    <p>Mon <strong>Requin</strong> (7 PV, 5 ATK, 1 DEF) attaque un <strong>Ours</strong> (6 PV, 2 ATK, 2 DEF)</p>
+                    <div class="combat-formula">Calcul : 5 ATK - 2 DEF = 3 dégâts</div>
+                    <p>→ Ours perd <strong>2 DEF</strong> (devient 0)</p>
+                    <p>→ Il reste <strong>1 dégât</strong> qui touche les PV</p>
+                    <p class="combat-result">📊 Ours devient : <strong>5 PV, 2 ATK, 0 DEF</strong></p>
                 </div>
             </section>
 
             <!-- RÉSUMÉ ULTRA-RAPIDE -->
-            <section class="regles-block">
-                <h2><span class="emoji">🎯</span> Résumé Ultra-Rapide (30 secondes)</h2>
+            <section id="resume" class="regles-block">
+                <h2><span class="emoji">📝</span> Résumé Ultra-Rapide</h2>
 
                 <div class="quick-summary">
                     <div class="summary-item">
-                        <div class="summary-icon">🏗️</div>
-                        <h5>1. CONSTRUIRE</h5>
-                        <p>Armée de 20 places<br>(Héros + Guerriers)</p>
+                        <div class="summary-number">1</div>
+                        <p><strong>Début</strong><br>2 persos + 5 cartes<br>0 gemme</p>
                     </div>
                     <div class="summary-item">
-                        <div class="summary-icon">🎮</div>
-                        <h5>2. JOUER</h5>
-                        <p>3 manches minimum<br>3 persos par tour</p>
+                        <div class="summary-number">2</div>
+                        <p><strong>Tour</strong><br>Piocher 1 carte<br>+1 gemme</p>
                     </div>
                     <div class="summary-item">
-                        <div class="summary-icon">⚔️</div>
-                        <h5>3. COMBATTRE</h5>
-                        <p>ATK - DEF = Dégâts<br>Éliminer = Points</p>
+                        <div class="summary-number">3</div>
+                        <p><strong>Invoquer</strong><br>1 perso<br>(max 3 sur terrain)</p>
                     </div>
                     <div class="summary-item">
-                        <div class="summary-icon">💎</div>
-                        <h5>4. AMÉLIORER</h5>
-                        <p>Diamants → Potions<br>Boostez votre armée</p>
+                        <div class="summary-number">4</div>
+                        <p><strong>Action</strong><br>Carte OU achat<br>OU pouvoir</p>
                     </div>
                     <div class="summary-item">
-                        <div class="summary-icon">🏆</div>
-                        <h5>5. GAGNER</h5>
-                        <p>Plus de points<br>après 3 manches</p>
+                        <div class="summary-number">5</div>
+                        <p><strong>Combat</strong><br>ATK - DEF<br>= dégâts</p>
                     </div>
-                </div>
-            </section>
-
-            <!-- CRÉDITS -->
-            <section class="regles-block credits-section">
-                <h2><span class="emoji">📚</span> Crédits</h2>
-                <p>Jeu créé par les élèves :</p>
-
-                <div class="credits-groups">
-                    <div class="credit-group">
-                        <h4>Groupe 1</h4>
-                        <p>Gabriel et Clovis</p>
+                    <div class="summary-item">
+                        <div class="summary-number">6</div>
+                        <p><strong>KO</strong><br>Points + gemmes<br>pour adversaire</p>
                     </div>
-                    <div class="credit-group">
-                        <h4>Groupe 2</h4>
-                        <p>Lydia</p>
-                    </div>
-                    <div class="credit-group">
-                        <h4>Groupe 3</h4>
-                        <p>Taïris et Arthur</p>
-                    </div>
-                    <div class="credit-group">
-                        <h4>Groupe 4</h4>
-                        <p>Nolan, Adrien et Matéo</p>
+                    <div class="summary-item">
+                        <div class="summary-number">🏆</div>
+                        <p><strong>Victoire</strong><br>Premier à<br><strong>15 points</strong></p>
                     </div>
                 </div>
 
-                <p style="margin-top: var(--space-md);">Avec la contribution de tous pour : Les 20 Héros légendaires d'Amérique du Sud, les illustrations épiques, les règles stratégiques et l'équilibrage du jeu.</p>
-
-                <div class="highlight-box success" style="margin-top: var(--space-md);">
-                    <p>🎉 <strong>PRÊT À JOUER ?</strong></p>
-                    <p>Choisissez votre armée, élaborez votre stratégie, et que le meilleur commandant gagne ! 🏆</p>
-                    <p><em>Bonne chance, guerriers ! ⚔️🦁🐺🦂</em></p>
+                <div class="highlight-box success" style="text-align: center; margin-top: var(--space-lg);">
+                    <p style="font-size: 1.2rem;">🎉 <strong>PRÊT À JOUER ?</strong></p>
+                    <p>Choisissez votre faction, élaborez votre stratégie, et que le meilleur commandant gagne ! 🏆</p>
+                    <p><em>Bonne chance, guerriers ! ⚔️🦁��🦂🐊</em></p>
                 </div>
 
-                <p style="margin-top: var(--space-md); font-size: 0.9rem; color: var(--color-text-muted);">
-                    Version 1.0 - Janvier 2026<br>
-                    Prochaines étapes : Impression des cartes et playtesting !
+                <p style="margin-top: var(--space-md); font-size: 0.9rem; color: var(--color-text-muted); text-align: center;">
+                    Version 2.0 - Stats et Règles Validées<br>
+                    PRIMAL LEGIONS © 2026
                 </p>
             </section>
 

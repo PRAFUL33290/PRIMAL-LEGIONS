@@ -52,7 +52,10 @@
                 <span class="badge"><span class="badge-icon">&#9201;</span> 20-30 min</span>
                 <span class="badge"><span class="badge-icon">&#9733;</span> 8+ ans</span>
             </div>
-            <a href="#regles" class="btn btn-primary">Découvrir les règles</a>
+            <div class="hero-buttons">
+                <a href="#regles" class="btn btn-primary">Découvrir les règles</a>
+                <button id="trailerBtn" class="btn btn-secondary">🎬 Voir le Trailer</button>
+            </div>
         </div>
         <div class="hero-scroll">
             <span>Défiler</span>
@@ -1253,7 +1256,157 @@
         </div>
     </footer>
 
+    <!-- Trailer Modal -->
+    <div id="trailerModal" class="trailer-modal">
+        <div class="trailer-modal-content">
+            <button class="trailer-modal-close" id="closeTrailer">&times;</button>
+            <div class="trailer-video-container">
+                <iframe id="trailerVideo" width="100%" height="100%" src="" style="border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Hero buttons container */
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--color-accent-primary);
+            color: var(--color-accent-primary);
+            padding: 1rem 2rem;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all var(--transition-medium);
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-accent-primary);
+            color: var(--color-bg-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 162, 39, 0.4);
+        }
+
+        /* Trailer Modal Styles */
+        .trailer-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .trailer-modal.active {
+            display: flex;
+        }
+
+        .trailer-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(201, 162, 39, 0.3);
+            border: 2px solid rgba(201, 162, 39, 0.5);
+        }
+
+        .trailer-video-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .trailer-video-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .trailer-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 35px;
+            height: 35px;
+            background: var(--color-accent-primary);
+            color: var(--color-bg-dark);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+            z-index: 10001;
+        }
+
+        .trailer-modal-close:hover {
+            transform: scale(1.1);
+            background: var(--color-accent-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .trailer-modal-content {
+                width: 95%;
+            }
+            
+            .trailer-modal-close {
+                top: -45px;
+            }
+        }
+    </style>
+
     <script src="js/main.js"></script>
+    <script>
+        // Trailer Modal functionality
+        const trailerBtn = document.getElementById('trailerBtn');
+        const trailerModal = document.getElementById('trailerModal');
+        const closeTrailer = document.getElementById('closeTrailer');
+        const trailerVideo = document.getElementById('trailerVideo');
+        const youtubeUrl = 'https://www.youtube.com/embed/MemFZrzzU3k?autoplay=1';
+
+        trailerBtn.addEventListener('click', function() {
+            trailerVideo.src = youtubeUrl;
+            trailerModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeModal() {
+            trailerModal.classList.remove('active');
+            trailerVideo.src = '';
+            document.body.style.overflow = '';
+        }
+
+        closeTrailer.addEventListener('click', closeModal);
+
+        trailerModal.addEventListener('click', function(e) {
+            if (e.target === trailerModal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && trailerModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 
 </html>
