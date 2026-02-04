@@ -380,6 +380,38 @@
                 margin: 0 auto;
             }
         }
+
+        /* Grille spéciale pour les animations en format portrait */
+        .animations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+            gap: var(--space-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            justify-content: center;
+        }
+
+        .animations-grid .character-showcase {
+            max-width: 250px;
+        }
+
+        @media (max-width: 900px) {
+            .animations-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 220px));
+                gap: var(--space-md);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .animations-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-sm);
+            }
+            .animations-grid .character-showcase {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -743,12 +775,12 @@
             <div class="section-divider"></div>
             <p class="section-intro">Découvrez les animations de vos guerriers préférés en action !</p>
 
-            <div class="characters-grid" style="margin-top: var(--space-lg);">
+            <div class="animations-grid" style="margin-top: var(--space-lg);">
                 <!-- Lion -->
                 <article class="character-showcase faction-sauvages">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-sauvages-glow), var(--faction-sauvages));">1</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/1️⃣ Le Gardien de la Canopée (Lion – Amazonie, Brésil).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -761,8 +793,8 @@
                 <!-- Ours -->
                 <article class="character-showcase faction-sauvages">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-sauvages-glow), var(--faction-sauvages));">2</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/2️⃣ Le Colosse des Andes (Ours – Colombie).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -775,8 +807,8 @@
                 <!-- Loup -->
                 <article class="character-showcase faction-sauvages">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-sauvages-glow), var(--faction-sauvages));">3</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/3️⃣ Le Chef des Vents du Sud (Loup – Patagonie).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -789,8 +821,8 @@
                 <!-- Cerf -->
                 <article class="character-showcase faction-sauvages">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-sauvages-glow), var(--faction-sauvages));">4</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/4️⃣ Le Gardien Sylvestre (Cerf – Chili).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -803,8 +835,8 @@
                 <!-- Gorille -->
                 <article class="character-showcase faction-sauvages">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-sauvages-glow), var(--faction-sauvages));">5</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/5️⃣ Le Pilier de la Jungle (Gorille – Guyane).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -817,8 +849,8 @@
                 <!-- Scorpion -->
                 <article class="character-showcase faction-dunes">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-dunes-glow), var(--faction-dunes));">6</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/6️⃣ Le Fléau des Sables Rouges (Scorpion – Atacama).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -831,8 +863,8 @@
                 <!-- Taureau -->
                 <article class="character-showcase faction-dunes">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-dunes-glow), var(--faction-dunes));">7</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/7️⃣ Le Briseur des Plaines (Taureau – Argentine).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -845,8 +877,8 @@
                 <!-- Serpent -->
                 <article class="character-showcase faction-dunes">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-dunes-glow), var(--faction-dunes));">8</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/8️⃣ Le Maître des Racines (Serpent – Colombie).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -859,8 +891,8 @@
                 <!-- Panthère -->
                 <article class="character-showcase faction-dunes">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-dunes-glow), var(--faction-dunes));">9</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/9️⃣ Le Spectre du Pantanal (Panthère – Brésil).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -873,8 +905,8 @@
                 <!-- Guépard -->
                 <article class="character-showcase faction-dunes">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-dunes-glow), var(--faction-dunes));">10</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/🔟 L'Éclair du Chaco (Guépard – Paraguay).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -887,8 +919,8 @@
                 <!-- Hibou -->
                 <article class="character-showcase faction-nuit">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-nuit-glow), var(--faction-nuit));">11</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/1️⃣1️⃣ Le Guetteur Nocturne (Hibou – Bolivie).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -901,8 +933,8 @@
                 <!-- Renard -->
                 <article class="character-showcase faction-nuit">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-nuit-glow), var(--faction-nuit));">12</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/1️⃣2️⃣ Le Rusé des Pampas (Renard – Uruguay).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -915,8 +947,8 @@
                 <!-- Araignée -->
                 <article class="character-showcase faction-nuit">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-nuit-glow), var(--faction-nuit));">13</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/1️⃣3️⃣ Le Tisseur d'Ombres (Araignée – Amazonie).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -929,8 +961,8 @@
                 <!-- Crocodile -->
                 <article class="character-showcase faction-nuit">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-nuit-glow), var(--faction-nuit));">14</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/1️⃣4️⃣ Le Tyran des Marécages (Crocodile – Venezuela).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -943,8 +975,8 @@
                 <!-- Tigre -->
                 <article class="character-showcase faction-nuit">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-nuit-glow), var(--faction-nuit));">15</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/1️⃣5️⃣ Le Traqueur des Lianes (Tigre – Amazonie, Pérou).PNG.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -957,8 +989,8 @@
                 <!-- Requin -->
                 <article class="character-showcase faction-abysses">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-abysses-glow), var(--faction-abysses));">16</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/1️⃣6️⃣ Le Faucheur des Profondeurs (Requin – Chili).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -971,8 +1003,8 @@
                 <!-- Raie Manta -->
                 <article class="character-showcase faction-abysses">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-abysses-glow), var(--faction-abysses));">17</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/1️⃣7️⃣ Le Veilleur des Courants (Raie Manta – Galápagos).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -985,8 +1017,8 @@
                 <!-- Poulpe -->
                 <article class="character-showcase faction-abysses">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-abysses-glow), var(--faction-abysses));">18</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/1️⃣8️⃣ Le Stratège Abyssal (Poulpe – Pérou).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -999,8 +1031,8 @@
                 <!-- Méduse -->
                 <article class="character-showcase faction-abysses">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-abysses-glow), var(--faction-abysses));">19</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/1️⃣9️⃣ Le Phare Englouti (Méduse – Brésil).mp4" type="video/mp4">
                         </video>
                     </div>
@@ -1013,8 +1045,8 @@
                 <!-- Dauphin -->
                 <article class="character-showcase faction-abysses">
                     <div class="character-number" style="background: linear-gradient(135deg, var(--faction-abysses-glow), var(--faction-abysses));">20</div>
-                    <div class="character-image-wrapper" style="padding-top: 75%;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" controls>
+                    <div class="character-image-wrapper" style="padding-top: 150%;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;" controls>
                             <source src="assets/images/ANIMATION PERSONNAGE/2️⃣0️⃣ Le Gardien des Chants (Dauphin – Fosse de Santos, Brésil).mp4" type="video/mp4">
                         </video>
                     </div>
