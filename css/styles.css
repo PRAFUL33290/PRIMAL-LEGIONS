@@ -1823,6 +1823,13 @@ strong {
     margin: 0;
 }
 
+.prophetie-narrator {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-top: var(--space-md);
+    line-height: 1.8;
+}
+
 /* --------------------------------------------------------------------------
    Teams Section
    -------------------------------------------------------------------------- */
