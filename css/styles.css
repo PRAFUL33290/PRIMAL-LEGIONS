@@ -2037,6 +2037,35 @@ strong {
     transform: scale(1.1);
 }
 
+/* Badge Boost pour personnages spéciaux */
+.boost-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.5);
+    animation: pulse-boost 2s infinite;
+    z-index: 10;
+    font-family: var(--font-display);
+    letter-spacing: 0.5px;
+}
+
+@keyframes pulse-boost {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 2px 10px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.8);
+    }
+}
+
 /* Hearts Display */
 .card-hearts {
     position: absolute;
@@ -3607,6 +3636,140 @@ strong {
 
 .step-number {
     font-size: 1.5rem;
+}
+
+/* Styles pour les nouvelles sections de règles */
+.deck-composition {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+.deck-type {
+    background: var(--color-bg-card);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.deck-type h4 {
+    color: var(--color-accent-primary);
+    font-family: var(--font-display);
+    margin-bottom: 1rem;
+}
+
+.deck-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+.deck-list li {
+    padding: 0.5rem 0;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.deck-list li:last-child {
+    border-bottom: none;
+}
+
+.card-types-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+.card-type-item {
+    background: var(--color-bg-card);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-medium);
+}
+
+.card-type-item:hover {
+    border-color: var(--color-accent-primary);
+    transform: translateY(-5px);
+}
+
+.card-type-item.card-type-special {
+    border: 2px solid var(--color-accent-primary);
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.1), var(--color-bg-card));
+}
+
+.card-type-item h4 {
+    color: var(--color-accent-primary);
+    font-family: var(--font-display);
+    margin-bottom: 1rem;
+}
+
+.boost-restrictions {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    border-left: 3px solid var(--color-accent-primary);
+}
+
+.deck-system {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.deck-explanation {
+    background: var(--color-bg-card);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.deck-explanation h4 {
+    color: var(--color-accent-primary);
+    font-family: var(--font-display);
+    margin-bottom: 0.5rem;
+}
+
+.deck-table table {
+    background: var(--color-bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.deck-table th {
+    font-family: var(--font-display);
+    color: var(--color-accent-primary);
+    font-weight: 600;
+}
+
+.boost-characters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+}
+
+.boost-char-card {
+    background: var(--color-bg-card);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid var(--color-accent-primary);
+    transition: all var(--transition-medium);
+}
+
+.boost-char-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+}
+
+.boost-char-card h4 {
+    color: var(--color-accent-primary);
+    font-family: var(--font-display);
+    margin-bottom: 0.5rem;
+}
+
+.option-card-special {
+    border: 2px solid var(--color-accent-primary);
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.1), var(--color-bg-card));
 }
 
 /* ==========================================================================
