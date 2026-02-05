@@ -3872,4 +3872,16 @@ strong {
         min-width: auto;
         width: fit-content;
     }
+    
+    .card-types-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .deck-composition {
+        grid-template-columns: 1fr;
+    }
+    
+    .boost-characters-grid {
+        grid-template-columns: 1fr;
+    }
 }
