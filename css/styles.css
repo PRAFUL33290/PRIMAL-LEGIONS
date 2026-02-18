@@ -203,11 +203,12 @@ strong {
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: var(--space-sm) var(--space-md);
+    gap: var(--space-xs);
 }
 
 .logo {
@@ -218,10 +219,10 @@ strong {
 
 .logo-text {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: var(--color-accent-primary);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     text-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
 }
 
@@ -229,15 +230,17 @@ strong {
     display: flex;
     list-style: none;
     gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .nav-links a {
     font-family: var(--font-display);
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     color: var(--color-text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: var(--space-xs) 0;
+    letter-spacing: 0.12em;
+    padding: var(--space-xs) 0.5rem;
     position: relative;
 }
 
